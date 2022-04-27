@@ -1,9 +1,9 @@
 :root{
-    --black--primary--: #000000;
-    --white--primary--: #FFFFFF;
-    --font-color-light--:#6abc33;
-    --font-color-dark--:#235203;
-
+    --black: #000000;
+    --white: #FFFFFF;
+    --red:   #FC0606;
+    --font-1: calligrapher;
+    --font-2: weatherSunday,calligrapher;
 
 }
 html{
@@ -20,6 +20,7 @@ body{
 
 *{
     box-sizing: inherit;
+    font-family: inherit;
 
 }
 
@@ -46,7 +47,7 @@ input[type="checkbox"]{
     
 }
 /*stage 3  draw the ball in hollow with Psuodoelement  */
-input[type="checkbox"]:before{
+input[type="checkbox"]::before{
     content: '';
     width: 2.5rem;
     height: 2.5rem;
@@ -58,7 +59,7 @@ input[type="checkbox"]:before{
 }
 
 
-input[type="checkbox"]:checked:before{
+input[type="checkbox"]:checked::before{
     transform: translate(2.3rem);
     box-shadow: none;
     transition: all .3s cubic-bezier(0.6,1.5,0.9,1.2);
@@ -76,25 +77,13 @@ input[type="checkbox"]:checked:before{
   margin: 1rem 0 0 3rem;
   float: left;
 
-}
-.st0{fill:var(--white--primary--);}
-.st1{font-family: calligrapher, 'Times new Roman'; font-size:48px;}
-.st2{font-size:72px; fill:#0470ee ;}
-.st3{fill:none;stroke:var(--black--primary--); stroke-width:2;}
-.st5{fill:#FC0606;stroke:#F40F0F;stroke-miterlimit:10;}
-.st6{fill:none;stroke:var(--black--primary--);stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;}
-.st7{fill:#D32495;}
-.st9{fill:none;stroke:var(--black--primary--);stroke-width:6;stroke-miterlimit:10;}
-.st10{fill:#FFFFFF;stroke:var(--black--primary--);stroke-width:6;stroke-miterlimit:10;}
-
+}    
 svg{
-    position: relative;
     pointer-events: none;
 
 }
 #hourHand, #minHand, #secHand{
     transform-origin:center;
-    position: absolute;
 }
 
 @font-face {
@@ -102,17 +91,117 @@ svg{
     src: url('./fonts/calligrapher-regular.ttf');
 }
 
-/*###############---dark mode---#############*/
-.body{background-color:var(--white--primary--); color:var(--black--primary--)}
-.body--darkMode{ background-color:var(--black--primary--); color: #FFFFFF;}
-.st1--darkMode{fill:var(--white--primary--); font-family: calligrapher; font-size:48px;}
-.st2--darkMode{font-size:72px; fill:var(--font-color-light--) ;}
-.st3--darkMode{fill:none;stroke:#235203;stroke-width:2;}
-.st5--darkMode{fill:var(--white--primary--);stroke:var(--white--primary--); stroke-miterlimit:10;}
-.st6--darkMode{fill:none;stroke:var(--white--primary--);stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;}
-.st7--darkMode{fill:var(--white--primary--);}
-.st9--darkMode{ fill:none;stroke:#e90122;stroke-width:6;stroke-miterlimit:10;}
-.st10--darkMode{fill:#FFFFFF;stroke:#e90122;stroke-width:6;stroke-miterlimit:10;}
+@font-face {
+    font-family: weatherSunday;
+    src: url('./fonts/weather-sunday.otf');
+}
+
+      /*###############---Light mode---#############*/
+   .st1{
+    font-size:48px;
+    font-family:var(--font-1);
+}
+   .st2{
+    fill:var(--red);
+    stroke:var(--red);stroke-miterlimit:10;
+}
+   .st3{
+    font-family:var(--font-2);
+    font-size:72px;  
+    fill:#00b4d8;
+}
+   .st4{
+    fill:none;
+    stroke:var(--black);
+    stroke-width:4;
+    stroke-linecap:round;
+    stroke-miterlimit:10;
+}
+   .st5{fill:url(#SVGID_1_);}
+   .st6{
+    fill:url(#SVGID_2_);
+    stroke:var(--white);
+    stroke-width:0.3296;
+    stroke-miterlimit:10;
+}
+   .st7{
+    fill:none;
+    stroke:var(--black);
+    stroke-width:5.5669;
+    stroke-miterlimit:10;
+}
+   .st8{
+    fill:var(--white);
+    stroke:var(--black);
+    stroke-width:5.5669;
+    stroke-miterlimit:10;
+}
+   .stbody{
+    background-color:var(--white);
+     color:var(--black)
+ }
 
 
+      /*###############---dark mode---#############*/
+   .st1--darkMode{
+    font-size:48px; 
+    font-family:var(--font-1);
+    fill:var(--white);
+}
+   .st2--darkMode{
+    fill:var(--white);
+    stroke:var(--white);
+    stroke-miterlimit:10;
+}
+   .st3--darkMode{
+    font-family:var(--font-2);
+    font-size:72px;
+    fill:#343a40;
+     }
+   .st4--darkMode{
+    fill:none;
+    stroke:var(--white);
+    stroke-width:4;
+    stroke-linecap:round;
+    stroke-miterlimit:10;
+}
+   .st5--darkMode{fill:var(--white)}
+   .st6--darkMode{
+    fill:var(--white);
+    stroke:var(--black);
+    stroke-width:0.3296;
+    stroke-miterlimit:10;
+}
+   .st7--darkMode{
+    fill:none;
+    stroke:var(--red);
+    stroke-width:5.5669;
+    stroke-miterlimit:10;
+}
+   .st8--darkMode{
+    fill:var(--white);
+    stroke:var(--red);
+    stroke-width:5.5669;
+    stroke-miterlimit:10;
+}
+   .stbody--darkMode{
+    background-color:var(--black);
+    color:var(--white)
+}
 
+.st14{
+    fill:none;
+    stroke:#000000;
+    stroke-width:5.5669;
+    stroke-miterlimit:10;
+}
+.st15{fill:#FFFFFF;
+    stroke:#000000;
+    stroke-width:5.5669;
+    stroke-miterlimit:10;
+}
+.st16{fill:none;
+    stroke:#FFFFFF;
+    stroke-width:17;
+    stroke-miterlimit:10;
+}

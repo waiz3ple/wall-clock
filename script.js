@@ -3,25 +3,25 @@ const minHand = document.querySelector('#minHand');
 const hourHand = document.querySelector('#hourHand');
 const audio = new Audio('./sounds/tick-tock.wav');
 const btnBox = document.querySelector('.switches--container');
-const toggleClasses = ['body', 'st1', 'st2','st3', 'st5', 'st6', 'st7', 'st9', 'st10'];
-//console.log(hourHand)
 
 function clock(){
-    const  degConstant = 6 //  (x/60) x 360° 
     const time = new Date();
-    const secRotation = time.getSeconds() *  degConstant // frotation
-    const minRotation = time.getMinutes()  * degConstant + (secRotation/60);
-     const hours  = time.getHours() > 12 ? time.getHours() - 12 : time.getHours();
-    const hourRotation = (hours / 12) * 360 + (minRotation/60) 
+    const sec = time.getSeconds();
+    const min = time.getMinutes();
+    const hour  = time.getHours() > 12 ? time.getHours() - 12 : time.getHours(); // compress to 12hrs
+    
+   //rotations : I explain this calculations in the comment folder
+    const secR = sec *  6 //  x 360° 
+    const minR = (min * 6) + (sec/10); // 
+    const hrR = (hour * 30) + (min/2) + (sec/120); //  
+   
+   rotate(secHand,  secR);  
+   rotate(minHand,  minR);
+   rotate(hourHand, hrR);
+} 
 
-   rotate(secHand,  secRotation,  [-125,-158]);  
-   rotate(minHand,  minRotation,  [-125,-158]);
-   rotate(hourHand, hourRotation, [-125,-158]);
-} //first good guess  [-130,170]
-
-function rotate(hand, handRotation, coords){
-    //hand.setAttribute('transform', `rotate(${handRotation})`);
-   hand.setAttribute('transform', `rotate(${handRotation},${coords.join(',')})`);
+function rotate(hand, degrees){
+   hand.setAttribute('transform', `rotate(${degrees}, -128, -154)`);
 }
 clock();
 setInterval(clock, 1000)
@@ -41,25 +41,29 @@ btnBox.addEventListener('change', function(event){
     }
 })
 
+
 function playSound(){
     audio.play();
     if(typeof audio.loop ==='boolean') audio.loop = true;
 }
 
+
+const classGroup = (selector) => Array.from(document.querySelectorAll(selector));
+
 function darkMode(){
-     toggleClasses.forEach(tgClass => {
-        document.querySelectorAll(`.${tgClass}`).forEach(element => {
-            element.classList.toggle(`${tgClass}`)
-            element.classList.toggle(`${tgClass}--darkMode`)
-        })
-     })
+    classGroup(`[class^="st"]`).forEach( element => {
+    const lightClass =  element.getAttribute('class').split(' ').find( cl => {
+        if(cl.startsWith('st') && !cl.endsWith('--darkMode')) return cl;
+      });
+      element.classList.toggle(`${lightClass}--darkMode`)
+      element.classList.toggle(`${lightClass}`)
+   });  
 }
 
 function lightMode(){
-    const darkElements = Array.from(document.querySelectorAll(`[class$="--darkMode"]`));
-        darkElements.forEach(element =>{
-           const lightModeClass = element.getAttribute('class').split(' ').find(el => el.includes('--darkMode')).replace('--darkMode','')
-          element.classList.toggle(`${lightModeClass}`)
-          element.classList.toggle(`${lightModeClass}--darkMode`)
-        })    
+   classGroup(`[class$="--darkMode"]`).forEach(element =>{
+    const lightClass = element.getAttribute('class').split(' ').find(cl => cl.endsWith('--darkMode')).replace('--darkMode','')
+       element.classList.toggle(`${lightClass}`)
+       element.classList.toggle(`${lightClass}--darkMode`)
+  });
 }
