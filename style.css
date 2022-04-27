@@ -1,0 +1,118 @@
+:root{
+    --black--primary--: #000000;
+    --white--primary--: #FFFFFF;
+    --font-color-light--:#6abc33;
+    --font-color-dark--:#235203;
+
+
+}
+html{
+    font-size: 62.50%;
+}
+
+body{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    box-sizing: inherit;
+
+}
+
+/*stage 1  formating the default checkbox  */
+input[type="checkbox"]{
+    -moz-appearance: none;
+    -webkit-appearance: none;    
+    appearance: none;
+}
+
+input[type="checkbox"]:focus{
+    outline: none;
+}
+
+/*stage 2  draw the hollow  */
+input[type="checkbox"]{
+    width:5.4rem;
+    height: 3.1rem;
+    border: 3px solid hsla(64, 10%, 40%, 1.0);
+    border-radius: 15px;
+    background-color: hsla(64, 10%, 40%, .5);
+    position: relative;
+    padding: 0;
+    
+}
+/*stage 3  draw the ball in hollow with Psuodoelement  */
+input[type="checkbox"]:before{
+    content: '';
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color:white;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: .2rem .5rem 1rem rgba(0,0,0,.4);
+    transition: all .3s ease-out;
+}
+
+
+input[type="checkbox"]:checked:before{
+    transform: translate(2.3rem);
+    box-shadow: none;
+    transition: all .3s cubic-bezier(0.6,1.5,0.9,1.2);
+}
+
+
+.switches--container{
+  display: flex;
+  float: right;
+  transform: translate(-30%, 20%);
+  
+}
+
+.switches--container p{
+  margin: 1rem 0 0 3rem;
+  float: left;
+
+}
+.st0{fill:var(--white--primary--);}
+.st1{font-family: calligrapher, 'Times new Roman'; font-size:48px;}
+.st2{font-size:72px; fill:#0470ee ;}
+.st3{fill:none;stroke:var(--black--primary--); stroke-width:2;}
+.st5{fill:#FC0606;stroke:#F40F0F;stroke-miterlimit:10;}
+.st6{fill:none;stroke:var(--black--primary--);stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;}
+.st7{fill:#D32495;}
+.st9{fill:none;stroke:var(--black--primary--);stroke-width:6;stroke-miterlimit:10;}
+.st10{fill:#FFFFFF;stroke:var(--black--primary--);stroke-width:6;stroke-miterlimit:10;}
+
+svg{
+    position: relative;
+    pointer-events: none;
+
+}
+#hourHand, #minHand, #secHand{
+    transform-origin:center;
+    position: absolute;
+}
+
+@font-face {
+    font-family: calligrapher;
+    src: url('./fonts/calligrapher-regular.ttf');
+}
+
+/*###############---dark mode---#############*/
+.body{background-color:var(--white--primary--); color:var(--black--primary--)}
+.body--darkMode{ background-color:var(--black--primary--); color: #FFFFFF;}
+.st1--darkMode{fill:var(--white--primary--); font-family: calligrapher; font-size:48px;}
+.st2--darkMode{font-size:72px; fill:var(--font-color-light--) ;}
+.st3--darkMode{fill:none;stroke:#235203;stroke-width:2;}
+.st5--darkMode{fill:var(--white--primary--);stroke:var(--white--primary--); stroke-miterlimit:10;}
+.st6--darkMode{fill:none;stroke:var(--white--primary--);stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;}
+.st7--darkMode{fill:var(--white--primary--);}
+.st9--darkMode{ fill:none;stroke:#e90122;stroke-width:6;stroke-miterlimit:10;}
+.st10--darkMode{fill:#FFFFFF;stroke:#e90122;stroke-width:6;stroke-miterlimit:10;}
+
+
+
