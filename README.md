@@ -1,7 +1,6 @@
 ````markdown
-# Analog Wall Clock
+## Analog Wall Clock
 
-![Hyper-Realistic SVG Wall Clock](link_to_clock_image.png)
 
 ## Overview
 
@@ -14,7 +13,7 @@ This is a hyper-realistic analog clock animated using JavaScript and styled with
 - Interactive and responsive to real-time.
 - Highly customizable through CSS.
 
-## Demo
+## Preview
 
 You can see a live demo of the clock here: [Live Demo](waiz3ple.github.io/wall-clock)
 
@@ -30,16 +29,15 @@ You will need a web browser that supports SVG and JavaScript.
 
 1. Clone the repository:
 
-   ```bash
+   
    git clone https://github.com/waiz3ple/wall-clock.git
-   ```
-````
+
 
 2. Navigate to the project directory:
 
-   ```bash
+   
    cd wall-clock
-   ```
+
 
 3. Open the `index.html` file in your preferred web browser.
 
