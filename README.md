@@ -1,5 +1,5 @@
 # Analog Wall Clock
----
+
 ## Overview
 
 This is a hyper-realistic analog clock animated using JavaScript and styled with CSS.
