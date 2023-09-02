@@ -48,14 +48,10 @@ You will need a web browser that supports SVG and JavaScript.
 
 ## Built With
 
-- SVG - Scalable Vector Graphics for creating the clock face.
+- SVG - I used Adobe Illustrator to draw the clock face and it hands then saved as svg.
 - JavaScript - For handling the clock's animation and real-time updates.
 - CSS - For styling the clock and making it visually appealing.
 
-## Acknowledgments
-
-- Thanks to [Author Name] for the SVG clock inspiration.
-- [Link to Inspirational Clock Project]
 
 ## License
 
