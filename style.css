@@ -1,207 +1,207 @@
-:root{
-    --black: #000000;
-    --white: #FFFFFF;
-    --red:   #FC0606;
-    --font-1: calligrapher;
-    --font-2: weatherSunday,calligrapher;
-
+:root {
+	--black: #000000;
+	--white: #ffffff;
+	--red: #fc0606;
+	--font-1: calligrapher;
+	--font-2: weatherSunday, calligrapher;
+	--strokelimit: 10;
 }
-html{
-    font-size: 62.50%;
-}
-
-body{
-    box-sizing: border-box;
-    font-family: sans-serif;
-    inset: 0;
-    margin: 0;
-    padding: 0;
+html {
+	font-size: 62.5%;
 }
 
-*{
-    box-sizing: inherit;
-    font-family: inherit;
+body {
+	box-sizing: border-box;
+	font-family: sans-serif;
+	inset: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
 
+* {
+	box-sizing: inherit;
+	font-family: inherit;
 }
 
 /*stage 1  formating the default checkbox  */
-input[type="checkbox"]{
-    -moz-appearance: none;
-    -webkit-appearance: none;    
-    appearance: none;
+input[type='checkbox'] {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
 }
 
-input[type="checkbox"]:focus{
-    outline: none;
+input[type='checkbox']:focus {
+	outline: none;
 }
 
 /*stage 2  draw the hollow  */
-input[type="checkbox"]{
-    width:5.4rem;
-    height: 3.1rem;
-    border: 3px solid hsla(64, 10%, 40%, 1.0);
-    border-radius: 15px;
-    background-color: hsla(64, 10%, 40%, .5);
-    position: relative;
-    padding: 0;
-    
+input[type='checkbox'] {
+	width: 5.4rem;
+	height: 3.1rem;
+	border: 3px solid hsla(64, 10%, 40%, 1);
+	border-radius: 15px;
+	background-color: hsla(64, 10%, 40%, 0.5);
+	position: relative;
+	padding: 0;
 }
 /*stage 3  draw the ball in hollow with Psuodoelement  */
-input[type="checkbox"]::before{
-    content: '';
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color:white;
-    position: absolute;
-    border-radius: 50%;
-    box-shadow: .2rem .5rem 1rem rgba(0,0,0,.4);
-    transition: all .3s ease-out;
+input[type='checkbox']::before {
+	content: '';
+	width: 2.5rem;
+	height: 2.5rem;
+	background-color: white;
+	position: absolute;
+	border-radius: 50%;
+	box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
+	transition: all 0.3s ease-out;
 }
 
-
-input[type="checkbox"]:checked::before{
-    transform: translate(2.3rem);
-    box-shadow: none;
-    transition: all .3s cubic-bezier(0.6,1.5,0.9,1.2);
+input[type='checkbox']:checked::before {
+	transform: translate(2.3rem);
+	box-shadow: none;
+	transition: all 0.3s cubic-bezier(0.6, 1.5, 0.9, 1.2);
 }
 
-
-.switches--container{
-  display: flex;
-  float: right;
-  transform: translate(-30%, 20%);
-  
+.switches--container {
+	display: flex;
+	float: right;
+	transform: translate(-30%, 20%);
 }
 
-.switches--container p{
-  margin: 1rem 0 0 3rem;
-  float: left;
-
-}    
-svg{
-    pointer-events: none;
-
+.switches--container p {
+	margin: 1rem 0 0 3rem;
+	float: left;
 }
-#hourHand, #minHand, #secHand{
-    transform-origin:center;
+svg {
+	pointer-events: none;
+}
+#hourHand,
+#minHand,
+#secHand {
+	transform-origin: center;
 }
 
 @font-face {
-    font-family: calligrapher;
-    src: url('./fonts/calligrapher-regular.ttf');
+	font-family: calligrapher;
+	src: url('./fonts/calligrapher-regular.ttf');
 }
 
 @font-face {
-    font-family: weatherSunday;
-    src: url('./fonts/weather-sunday.otf');
+	font-family: weatherSunday;
+	src: url('./fonts/weather-sunday.otf');
 }
 
-      /*###############---Light mode---#############*/
-   .st1{
-    font-size:48px;
-    font-family:var(--font-1);
-}
-   .st2{
-    fill:var(--red);
-    stroke:var(--red);stroke-miterlimit:10;
-}
-   .st3{
-    font-family:var(--font-2);
-    font-size:72px;  
-    fill:#00b4d8;
-}
-   .st4{
-    fill:none;
-    stroke:var(--black);
-    stroke-width:4;
-    stroke-linecap:round;
-    stroke-miterlimit:10;
-}
-   .st5{fill:url(#SVGID_1_);}
-   .st6{
-    fill:url(#SVGID_2_);
-    stroke:var(--white);
-    stroke-width:0.3296;
-    stroke-miterlimit:10;
-}
-   .st7{
-    fill:none;
-    stroke:var(--black);
-    stroke-width:5.5669;
-    stroke-miterlimit:10;
-}
-   .st8{
-    fill:var(--white);
-    stroke:var(--black);
-    stroke-width:5.5669;
-    stroke-miterlimit:10;
-}
-   .stbody{
-    background-color:var(--white);
-     color:var(--black)
- }
-
-
-      /*###############---dark mode---#############*/
-   .st1--darkMode{
-    font-size:48px; 
-    font-family:var(--font-1);
-    fill:var(--white);
-}
-   .st2--darkMode{
-    fill:var(--white);
-    stroke:var(--white);
-    stroke-miterlimit:10;
-}
-   .st3--darkMode{
-    font-family:var(--font-2);
-    font-size:72px;
-    fill:#343a40;
-     }
-   .st4--darkMode{
-    fill:none;
-    stroke:var(--white);
-    stroke-width:4;
-    stroke-linecap:round;
-    stroke-miterlimit:10;
-}
-   .st5--darkMode{fill:var(--white)}
-   .st6--darkMode{
-    fill:var(--white);
-    stroke:var(--black);
-    stroke-width:0.3296;
-    stroke-miterlimit:10;
-}
-   .st7--darkMode{
-    fill:none;
-    stroke:var(--red);
-    stroke-width:5.5669;
-    stroke-miterlimit:10;
-}
-   .st8--darkMode{
-    fill:var(--white);
-    stroke:var(--red);
-    stroke-width:5.5669;
-    stroke-miterlimit:10;
-}
-   .stbody--darkMode{
-    background-color:var(--black);
-    color:var(--white)
+/*###############---Light & dark mode style---#############*/
+.st1,
+.st1--darkMode {
+	font-size: 48px;
+	font-family: var(--font-1);
 }
 
-.st14{
-    fill:none;
-    stroke:#000000;
-    stroke-width:5.5669;
-    stroke-miterlimit:10;
+.st1--darkMode {
+	fill: var(--white);
 }
-.st15{fill:#FFFFFF;
-    stroke:#000000;
-    stroke-width:5.5669;
-    stroke-miterlimit:10;
+
+.st2,
+.st2--darkMode {
+	fill: var(--red);
+	stroke: var(--red);
+	stroke-miterlimit: var(--strokelimit);
 }
-.st16{fill:none;
-    stroke:#FFFFFF;
-    stroke-width:17;
-    stroke-miterlimit:10;
+
+.st2--darkMode {
+	fill: var(--white);
+	stroke: var(--white);
+}
+
+.st3,
+.st3--darkMode {
+	font-family: var(--font-2);
+	font-size: 72px;
+	fill: #00b4d8;
+}
+
+.st3--darkMode {
+	fill: #343a40;
+}
+
+.st4,
+.st4--darkMode {
+	fill: none;
+	stroke: var(--black);
+	stroke-width: 4;
+	stroke-linecap: round;
+	stroke-miterlimit: var(--strokelimit);
+}
+.st4--darkMode {
+	stroke: var(--white);
+}
+.st5 {
+	fill: url(#SVGID_1_);
+}
+
+.st5--darkMode {
+	fill: var(--white);
+}
+.st6 {
+	fill: url(#SVGID_2_);
+	stroke: var(--white);
+	stroke-width: 0.3296;
+	stroke-miterlimit: var(--strokelimit);
+}
+.st6--darkMode {
+	fill: var(--white);
+	stroke: var(--black);
+}
+
+.st7,
+.st7--darkMode {
+	fill: none;
+	stroke: var(--black);
+	stroke-width: 5.5669;
+	stroke-miterlimit: var(--strokelimit);
+}
+
+.st7--darkMode {
+	fill: none;
+	stroke: var(--red);
+}
+
+.st8,
+.st8--darkMode {
+	fill: var(--white);
+	stroke: var(--black);
+	stroke-width: 5.5669;
+	stroke-miterlimit: var(--strokelimit);
+}
+
+.st8--darkMode {
+	stroke: var(--red);
+}
+
+.stbody {
+	background-color: var(--white);
+	color: var(--black);
+}
+
+.stbody--darkMode {
+	background-color: var(--black);
+	color: var(--white);
+}
+
+/*  media query */
+@media screen and (max-width: 1300px) {
+	svg {
+		margin-top: 5rem;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.switches--container {
+		margin: auto;
+	}
+	svg {
+		margin-top: 8rem;
+	}
 }
