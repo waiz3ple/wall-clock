@@ -1,6 +1,5 @@
-````markdown
-## Analog Wall Clock
-
+```markdown
+# Analog Wall Clock
 
 ## Overview
 
@@ -15,7 +14,7 @@ This is a hyper-realistic analog clock animated using JavaScript and styled with
 
 ## Preview
 
-You can see a live demo of the clock here: [Live Demo](waiz3ple.github.io/wall-clock)
+You can see a live demo of the clock here: [Live Demo](https://waiz3ple.github.io/wall-clock)
 
 ## Getting Started
 
@@ -29,15 +28,15 @@ You will need a web browser that supports SVG and JavaScript.
 
 1. Clone the repository:
 
-   
+   ```bash
    git clone https://github.com/waiz3ple/wall-clock.git
-
+   ```
 
 2. Navigate to the project directory:
 
-   
+   ```bash
    cd wall-clock
-
+   ```
 
 3. Open the `index.html` file in your preferred web browser.
 
@@ -60,11 +59,12 @@ You will need a web browser that supports SVG and JavaScript.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-please do not claim this project as yours - it is solely design and built by WASIU RAMONI for talent showcase.
+
+**Please do not claim this project as yours - it is solely designed and built by WASIU RAMONI for talent showcase.**
 
 ## Author
 
-- Wasiu
+- Wasiu Ramoni
 - GitHub: [GitHub Profile](https://github.com/waiz3ple)
 
 ## Contact
@@ -72,10 +72,6 @@ please do not claim this project as yours - it is solely design and built by WAS
 If you have any questions, suggestions, or issues, please feel free to reach out to me:
 
 - Email: wasiu@ramoni.pro
-- Twitter: @waiz3ple
-- Telegram: t.me/waiz3ple
-
-```
-
-
+- Twitter: [@waiz3ple](https://twitter.com/waiz3ple)
+- Telegram: [t.me/waiz3ple](https://t.me/waiz3ple)
 ```
