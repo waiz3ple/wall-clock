@@ -155,7 +155,7 @@ input[type='checkbox']::before {
 	content: '';
 	width: 2.5rem;
 	height: 2.5rem;
-	background-color: white;
+	background-color: #fff;
 	position: absolute;
 	border-radius: 50%;
 	box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
@@ -186,8 +186,8 @@ input[type='checkbox']:checked::before {
 }
 
 @media screen and (max-width: 800px) {
-	.switches--container {
+	.switches-container {
 		margin: auto;
-		margin-top: 8rem;
+		margin: 8rem 0;
 	}
 }

@@ -31,8 +31,7 @@ function rotate(hand, degrees) {
 clock();
 setInterval(clock, 1000);
 
-//____________light mode and sound___________
-
+//____________Color Scheme and sound___________
 //event delegation 
 btnBox.addEventListener('change', function (event) {
     //sound switch
