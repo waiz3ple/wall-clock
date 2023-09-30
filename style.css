@@ -1,27 +1,132 @@
-:root {
-	--black: #000000;
-	--white: #ffffff;
-	--red: #fc0606;
-	--font-1: calligrapher;
-	--font-2: weatherSunday, calligrapher;
-	--strokelimit: 10;
-}
-html {
-	font-size: 62.5%;
+/*load custom fonts*/
+@font-face {
+	font-family: calligrapher;
+	src: url('./fonts/calligrapher-regular.ttf');
 }
 
+@font-face {
+	font-family: weatherSunday;
+	src: url('./fonts/weather-sunday.otf');
+}
+
+html {
+	font-size: 62.50%;
+}
+
+:root {
+	/*colors*/
+	--color-primary:   #000;
+	--color-secondary: #fff;
+	--color-danger:    #fc0606;
+	--color-success:   #00b4d8;
+	--color-seconds:   var(--color-primary);
+  /*fonts*/
+	--font-1: calligrapher, sans-serif;
+	--font-2: weatherSunday, calligrapher, sans-serif;
+  /* svg props  */
+	--strokelimit: 10;
+	--linear-gradient: url(#linear-gradient);
+}
+
+[data-theme="light"]{
+	/*colors*/
+	--color-primary:   #000;
+	--color-secondary: #fff;
+	--color-danger:    #fc0606;
+	--color-success:   #00b4d8;
+	--color-seconds:   var(--color-primary);
+  /*fonts*/
+	--font-1: calligrapher, sans-serif;
+	--font-2: weatherSunday, calligrapher, sans-serif;
+  /* svg props  */
+	--strokelimit: 10;
+	--linear-gradient: url(#linear-gradient);
+}
+
+[data-theme="dark"]{
+    --color-primary: #fff;
+		--color-secondary: #000;
+		--color-danger: var(--color-primary);
+		--color-success: #343a40;
+		--color-seconds: #fc0606;
+     /*fonts*/
+		--font-1: calligrapher;
+		--font-2: weatherSunday, calligrapher;
+     /* svg props  */
+		--strokelimit: 10;
+		--linear-gradient: var(--color-primary);
+}
+
+/*_____________________________*/
 body {
 	box-sizing: border-box;
 	font-family: sans-serif;
-	inset: 0;
-	margin: 0;
-	padding: 0;
 	position: relative;
+	background-color: var(--color-secondary);
+	color: var(--color-primary);
 }
 
 * {
 	box-sizing: inherit;
-	font-family: inherit;
+	margin: 0;
+	padding: 0;
+	inset: 0;
+}
+
+svg {
+	pointer-events: none;
+}
+
+#hourHand,#minHand, #secHand {
+	transform-origin: center;
+}
+
+#minsBars {
+	fill: none;
+	stroke: var(--color-primary);
+	stroke-width: 4;
+	stroke-linecap: round;
+	stroke-miterlimit: var(--strokelimit);
+}
+
+#hoursBars{
+	fill: var(--color-danger);
+	stroke: var(--color-danger);
+	stroke-miterlimit: var(--strokelimit);
+}
+
+#numbers {
+	font-size: 4.8rem;
+	font-family: var(--font-1);
+	fill: var(--color-primary);
+}
+
+#hourHand {
+	fill: var(--linear-gradient);
+}
+
+#minHand {
+	fill: var(--linear-gradient);
+	stroke: var(--color-secondary);
+	stroke-width: 0.3296;
+	stroke-miterlimit: var(--strokelimit);
+}
+
+#secHand {
+	fill: none;
+	stroke: var(--color-seconds);
+	stroke-width: 5.5669;
+	stroke-miterlimit: var(--strokelimit);
+}
+
+#secHand circle {
+	fill: #fff;
+}
+
+#designer{
+	font-size: 7rem;
+	font-family: var(--font-2);
+	fill: var(--color-success);
 }
 
 /*stage 1  formating the default checkbox  */
@@ -63,145 +168,26 @@ input[type='checkbox']:checked::before {
 	transition: all 0.3s cubic-bezier(0.6, 1.5, 0.9, 1.2);
 }
 
-.switches--container {
+.switches-container {
 	display: flex;
 	float: right;
 	transform: translate(-30%, 20%);
 }
 
-.switches--container p {
-	margin: 1rem 0 0 3rem;
+.switches-container label {
+	margin: 1rem 0 0 4rem;
 	float: left;
 }
-svg {
-	pointer-events: none;
-}
-#hourHand,
-#minHand,
-#secHand {
-	transform-origin: center;
-}
 
-@font-face {
-	font-family: calligrapher;
-	src: url('./fonts/calligrapher-regular.ttf');
-}
-
-@font-face {
-	font-family: weatherSunday;
-	src: url('./fonts/weather-sunday.otf');
-}
-
-/*###############---Light & dark mode style---#############*/
-.st1,
-.st1--darkMode {
-	font-size: 48px;
-	font-family: var(--font-1);
-}
-
-.st1--darkMode {
-	fill: var(--white);
-}
-
-.st2,
-.st2--darkMode {
-	fill: var(--red);
-	stroke: var(--red);
-	stroke-miterlimit: var(--strokelimit);
-}
-
-.st2--darkMode {
-	fill: var(--white);
-	stroke: var(--white);
-}
-
-.st3,
-.st3--darkMode {
-	font-family: var(--font-2);
-	font-size: 72px;
-	fill: #00b4d8;
-}
-
-.st3--darkMode {
-	fill: #343a40;
-}
-
-.st4,
-.st4--darkMode {
-	fill: none;
-	stroke: var(--black);
-	stroke-width: 4;
-	stroke-linecap: round;
-	stroke-miterlimit: var(--strokelimit);
-}
-.st4--darkMode {
-	stroke: var(--white);
-}
-.st5 {
-	fill: url(#SVGID_1_);
-}
-
-.st5--darkMode {
-	fill: var(--white);
-}
-.st6 {
-	fill: url(#SVGID_2_);
-	stroke: var(--white);
-	stroke-width: 0.3296;
-	stroke-miterlimit: var(--strokelimit);
-}
-.st6--darkMode {
-	fill: var(--white);
-	stroke: var(--black);
-}
-
-.st7,
-.st7--darkMode {
-	fill: none;
-	stroke: var(--black);
-	stroke-width: 5.5669;
-	stroke-miterlimit: var(--strokelimit);
-}
-
-.st7--darkMode {
-	fill: none;
-	stroke: var(--red);
-}
-
-.st8,
-.st8--darkMode {
-	fill: var(--white);
-	stroke: var(--black);
-	stroke-width: 5.5669;
-	stroke-miterlimit: var(--strokelimit);
-}
-
-.st8--darkMode {
-	stroke: var(--red);
-}
-
-.stbody {
-	background-color: var(--white);
-	color: var(--black);
-}
-
-.stbody--darkMode {
-	background-color: var(--black);
-	color: var(--white);
-}
-
-/*  media query */
 @media screen and (max-width: 1300px) {
-	svg {
-		margin-top: 5rem;
+	.switches-container {
+		margin: 5rem 0;
 	}
 }
 
 @media screen and (max-width: 800px) {
 	.switches--container {
 		margin: auto;
-	}
-	svg {
 		margin-top: 8rem;
 	}
 }
