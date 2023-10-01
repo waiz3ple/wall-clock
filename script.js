@@ -122,12 +122,12 @@ function clearErrors() {
     errorBox.innerHTML = ''; // Clear the error box
 }
 
-// Initialize audio, clock, and color scheme
-initAudio();
 //initialize clock
 clock();
 //keep clock in real time
 setInterval(clock, 1000);
+// Initialize audio, clock, and color scheme
+initAudio();
 // retrieve user's last prefrence color scheme and apply
 retrieveScheme();
 // log and print all errors
