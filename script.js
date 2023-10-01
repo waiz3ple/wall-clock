@@ -1,4 +1,4 @@
-// Constants and global variables
+/*  <== Constants and global variables ==>     */
 const secHand = document.querySelector('#secHand');
 const minHand = document.querySelector('#minHand');
 const hourHand = document.querySelector('#hourHand');
@@ -25,7 +25,7 @@ function clock() {
     const sec = time.getSeconds();
     const min = time.getMinutes();
     const hour = time.getHours() % 12 || 12; // Compressed to 12-hours format
-    //clock hands degrees, check for detail calculation ==>  https://github.com/waiz3ple/wall-clock/blob/master/docs/Clock%20Hands.pdf
+    //Angle of rotation, check for detail calculation ==>  https://github.com/waiz3ple/wall-clock/blob/master/docs/Clock%20Hands.pdf
     const secR = sec * 6;
     const minR = min * 6 + sec / 10;
     const hrR = hour * 30 + min / 2 + sec / 120;
@@ -36,9 +36,9 @@ function clock() {
 }
 
 // Rotate clock hands
-function rotate(hand, degrees) {
+function rotate(hand, angle) {
     const [xAxis, yAxis] = coords;
-    hand.setAttribute('transform', `rotate(${degrees}, ${xAxis}, ${yAxis})`);
+    hand.setAttribute('transform', `rotate(${angle}, ${xAxis}, ${yAxis})`);
 }
 
 // Play clock ticking sound, handling any errors
@@ -99,7 +99,7 @@ function logError(message) {
     errMessages.push(message);
 }
 
-// Print error messages and clear the error box
+// Print error messages and clear previous logged errors 
 function printErrorMessage(errMsgs) {
     let html = `
        <ul>
@@ -124,7 +124,11 @@ function clearErrors() {
 
 // Initialize audio, clock, and color scheme
 initAudio();
+//initialize clock
 clock();
+//keep clock in real time
 setInterval(clock, 1000);
+// retrieve user's last prefrence color scheme and apply
 retrieveScheme();
+// log and print all errors
 printErrorMessage(errMessages);
