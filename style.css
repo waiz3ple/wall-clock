@@ -177,17 +177,39 @@ input[type='checkbox']:checked::before {
 .switches-container label {
 	margin: 1rem 0 0 4rem;
 	float: left;
+	padding: .5rem;
 }
 
 @media screen and (max-width: 1300px) {
 	.switches-container {
-		margin: 5rem 0;
+		margin: 2rem 0 5rem 0;
 	}
 }
 
 @media screen and (max-width: 800px) {
 	.switches-container {
-		margin: auto;
-		margin: 8rem 0;
+		margin: ;
 	}
+}
+
+.error-container{
+	font-family: sans-serif;
+	font-style: italic;
+	font-size: 1.3rem;
+	color: #F00;
+	display: grid;
+	grid-gap:2rem;
+	line-height: 1.5;
+	grid-template-columns: 10fr  1fr;
+}
+
+.close{
+	justify-self: right;
+	padding-right: 2rem;
+	cursor: pointer;
+}
+
+.error-list{
+	padding-left: 4rem;
+	list-style-type: square;
 }

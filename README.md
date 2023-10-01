@@ -1,25 +1,34 @@
 # Analog Wall Clock
 
+![Clock](clock-screenshot.png)
+
 ## Overview
 
-This is a hyper-realistic analog clock animated using JavaScript and styled with CSS.
-It combines the beauty of SVG graphics with the functionality of JavaScript to create
-an interactive and visually appealing clock.
+This is a simple clock application that displays the current time and provides some additional features such as sound effects and color scheme customization. It's designed to be easy to use and highly customizable to suit your preferences.
 
 ## Features
 
-- Realistic analog clock design.
-- Smooth and continuous second, minute, and hour hands movement.
-- Interactive and responsive to real-time.
-- Highly customizable through CSS.
+### 1. Real-time Clock
 
-## Preview
+- The application displays the current time with three clock hands (hour, minute, and second).
+- The clock updates in real-time, accurately reflecting the current time.
 
-You can see a live demo of the clock here: [Live Demo](https://waiz3ple.github.io/wall-clock)
+### 2. Sound Effects
+
+- You can enable/disable clock ticking sound effects.
+- When enabled, the clock emits a ticking sound every second.
+
+### 3. Color Scheme
+
+- You can choose between a dark and light color scheme for the clock.
+- The color scheme preference is stored in your browser's local storage and persists across sessions.
+
+### 4. Error Handling
+
+- The application gracefully handles errors related to audio initialization, sound playback, and local storage.
+- Any errors that occur are logged and displayed in the error message box.
 
 ## Getting Started
-
-Follow these instructions to get a copy of the project up and running on your local machine.
 
 ### Prerequisites
 
@@ -43,21 +52,29 @@ You will need a web browser that supports SVG and JavaScript.
 
 ## Usage
 
-- The clock should start running immediately when you open the `index.html` file in your browser.
-- You can interact with the clock in real-time, and the time should update accordingly.
+- **Sound Toggle**: Use the "Toggle Sound" switch to enable or disable ticking sound effects.
+- **Color Scheme Toggle**: Use the "Toggle Color Scheme" switch to switch between dark and light color schemes.
+- **Error Messages**: If any errors occur (e.g., audio initialization fails), they will be displayed in the error message box. Click "close" to clear the error messages.
 
-## Built With
+## Preview
 
-- SVG - I used Adobe Illustrator to draw the clock face and it hands then saved as svg.
-- JavaScript - For handling the clock's animation and real-time updates.
-- CSS - For styling the clock and making it visually appealing.
+You can see a live demo of the clock here: [Live Demo](https://waiz3ple.github.io/wall-clock)
 
+
+## Customization
+
+- If you want to use a custom ticking sound, replace `tick-tock.wav` in the `sounds` folder with your desired audio file. Ensure it's in a compatible format (e.g., WAV).
+- You can further customize the clock appearance by modifying the CSS in `styles.css`.
+- Error handling and logging can be enhanced by modifying the error-handling functions in the JavaScript code.
+
+## Dependencies
+
+- This clock application relies on HTML, CSS, and JavaScript. No external libraries or frameworks are used.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-**Please do not claim this project as yours - it is solely designed and built by WASIU RAMONI for talent showcase.**
+This clock application is open-source and available under the [MIT License](LICENSE).
+**Please do not claim this project as yours**
 
 ## Author
 
@@ -71,4 +88,3 @@ If you have any questions, suggestions, or issues, please feel free to reach out
 - Email: wasiu@ramoni.pro
 - Twitter: [@waiz3ple](https://twitter.com/waiz3ple)
 - Telegram: [t.me/waiz3ple](https://t.me/waiz3ple)
-
