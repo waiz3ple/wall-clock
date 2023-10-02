@@ -5,9 +5,11 @@ const hourHand = document.querySelector('#hourHand');
 const toggleColor = document.querySelector('#toggle-color');
 const btnBox = document.querySelector('.switches-container');
 const errorBox = document.querySelector('.error-container');
-const coords = [-128, -154]; // SVG circle center point
+const settingIcon = document.querySelector('.setting-icon');
+const coords = [-1, 5]; // SVG circle center point from [0,0]
 let audio;
 let errMessages = [];
+
 
 /*      <== functions ==>     */
 // Initialize audio, handling any errors
@@ -25,7 +27,7 @@ function clock() {
     const sec = time.getSeconds();
     const min = time.getMinutes();
     const hour = time.getHours() % 12 || 12; // Compressed to 12-hours format
-    //Angle of rotation, check for detail calculation ==>  https://github.com/waiz3ple/wall-clock/blob/master/docs/Clock%20Hands.pdf
+    //Angle of rotation, check the docs/ folder for the calculation detail
     const secR = sec * 6;
     const minR = min * 6 + sec / 10;
     const hrR = hour * 30 + min / 2 + sec / 120;
@@ -132,3 +134,13 @@ initAudio();
 retrieveScheme();
 // log and print all errors
 printErrorMessage(errMessages);
+
+/* working on icon*/
+function toggleVisibility(selector) {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.style.visibility = element.style.visibility === 'visible' ? 'hidden' : 'visible';
+  }
+}
+
+settingIcon.addEventListener('click', () => toggleVisibility('.switches-container'));
