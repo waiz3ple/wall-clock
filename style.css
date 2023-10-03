@@ -29,7 +29,7 @@ html {
 
 	/*tooltip*/
 	--tooltip-color: brown;
-    --arrow-size: 30px;
+    --arrow-size: 20px;
 }
 
 [data-theme="light"]{
@@ -47,7 +47,7 @@ html {
 	--linear-gradient: url(#linear-gradient);
 	/*tooltip*/
 	--tooltip-color: brown;
-	--arrow-size: 30px;
+	--arrow-size: 20px;
 }
 
 [data-theme="dark"]{
@@ -64,7 +64,7 @@ html {
 		--linear-gradient: var(--color-primary);
         /*tooltip*/
         --tooltip-color: brown;
-        --arrow-size: 30px;
+        --arrow-size: 20px;
 
 }
 
@@ -278,7 +278,7 @@ svg.setting-icon:active circle {
 	border-right: var(--arrow-size) solid transparent;
 	border-top: var(--arrow-size) solid var(--tooltip-color);
 	position: absolute;
-	bottom: -2.5rem;
+	bottom: -1.8rem;
 	justify-self: center;
 }
 
@@ -314,9 +314,9 @@ Media Queries
 	}
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 766px) {
 	.container-fluid{
-		grid-template-columns: 6fr 2fr;
+		grid-template-columns: 6fr 3fr;
 		grid-gap: 2rem;
 	}
 }
@@ -324,16 +324,48 @@ Media Queries
 
 @media screen and (max-width: 700px) {
 	.container-fluid{
-		grid-template-rows: repeat(3, fit-content);
+		grid-template-rows: repeat(2, fit-content) minmax(fit-content, 100%);
 		grid-template-columns: 1fr;
 		grid-gap: 1rem;
 	}
 
 	svg.setting-icon {
-		fill:#7D868E;
-		width: 10%;
-		cursor: pointer;
-		
+		width: 30%;	
+		margin-top: 2rem;
 	}
 
+	.setting-container{
+		grid-template-columns: 4fr 2fr;
+		/*justify-items: center;*/
+		grid-auto-flow: dense;
+		direction: rtl;
+	    grid-gap: 3rem;
+	    align-items: center;
+	    justify-items: start;
+	}
+     
+     .switches-container{ 
+     	padding: 1.5rem 2rem;
+     	max-height: 30rem;
+     	grid-auto-flow: dense;
+		direction: ltr;
+		justify-self: end;
+     }
+
+      .switches-container::after{  /*tooltip arrow*/
+      	content:'';
+      	width: 0;
+      	height: 0;
+      	border-top: var(--arrow-size) solid transparent;
+      	border-bottom: var(--arrow-size) solid transparent;
+      	border-right: var(--arrow-size) solid var(--tooltip-color);
+      	position: absolute;
+      	/*bottom: -5rem;*/
+      	transform: translate(-9.5rem, -3.9rem);
+      	justify-self: center;
+      }
+      
+     .sound{
+     	margin-top: 1rem;
+     }
 }

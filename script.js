@@ -92,6 +92,7 @@ btnBox.addEventListener('change', function (event) {
         const colorScheme = event.target.checked ? 'dark' : 'light';
         applyColorScheme(colorScheme);
         setLocalStorage(colorScheme);
+         displayCurrentTheme('.sound label', colorScheme);
     }
 });
 
@@ -104,6 +105,11 @@ function toggleVisibility(selector) {
 }
 settingIcon.addEventListener('click', () => toggleVisibility('.switches-container'));
 
+//Show the current theme on the label
+function displayCurrentTheme(selector, currTheme){
+    const element = document.querySelector(selector);
+    element.textContent = currTheme.slice(0,1).toUpperCase() + currTheme.slice(1) + ' mode';
+}
 
 // Log an error message and add it to the error messages array
 function logError(message) {
@@ -112,7 +118,7 @@ function logError(message) {
 }
 
 // Print error messages and clear previous logged errors 
-function printErrorMessage(errMsgs) {
+function displayErrorMessage(errMsgs) {
     let html = `
        <ul>
          ${errMsgs.map(err => {
@@ -127,6 +133,7 @@ function printErrorMessage(errMsgs) {
         errorBox.insertAdjacentHTML('beforeend', html);
     }
 }
+
 
 // Clear errors and the error box
 function clearErrors() {
@@ -143,5 +150,5 @@ initAudio();
 // retrieve user's last prefrence color scheme and apply
 retrieveScheme();
 // log and print all errors
-printErrorMessage(errMessages);
+displayErrorMessage(errMessages);
 
