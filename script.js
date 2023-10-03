@@ -105,11 +105,6 @@ function toggleVisibility(selector) {
 }
 settingIcon.addEventListener('click', () => toggleVisibility('.switches-container'));
 
-//Show the current theme on the label
-function displayCurrentTheme(selector, currTheme){
-    const element = document.querySelector(selector);
-    element.textContent = currTheme.slice(0,1).toUpperCase() + currTheme.slice(1) + ' mode';
-}
 
 // Log an error message and add it to the error messages array
 function logError(message) {
@@ -152,3 +147,7 @@ retrieveScheme();
 // log and print all errors
 displayErrorMessage(errMessages);
 
+function displayCurrentTheme(selector, currTheme){
+    const element = document.querySelector(selector);
+    element.textContent = currTheme.slice(0,1).toUpperCase() + currTheme.slice(1) + ' mode';
+}
