@@ -7,8 +7,8 @@ const btnBox = document.querySelector('.switches-container');
 const errorBox = document.querySelector('.error-container');
 const settingIcon = document.querySelector('.setting-icon');
 const coords = [-1, 5]; // SVG circle center point from [0,0]
-let audio;
 let errMessages = [];
+let audio;
 
 
 /*      <== functions ==>     */
@@ -56,30 +56,30 @@ function playSound() {
 }
 
 // Apply color scheme
-function applyColorScheme(scheme = 'dark') {
+function applyColorScheme(theme = 'dark') {
     const root = document.documentElement;
-    root.setAttribute('data-theme', scheme);
+    root.setAttribute('data-theme', theme);
 }
 
 // Set color scheme in local storage
-function setLocalStorage(scheme = 'dark') {
+function setLocalStorage(theme = 'dark') {
     try {
-        localStorage.setItem('settings', JSON.stringify({ scheme }));
+        localStorage.setItem('theme', JSON.stringify({ theme }));
     } catch (error) {
-        logError(`Error setting scheme in localStorage: ${error}`);
+        logError(`Error setting theme in localStorage: ${error}`);
     }
 }
 
 // Retrieve user's last preferred color scheme and apply it
 function retrieveScheme() {
     try {
-        const color = JSON.parse(localStorage.getItem('settings'));
-        if (color && color.scheme === 'dark') {
+        const savedColor = JSON.parse(localStorage.getItem('theme'));
+        if (savedColor && savedColor.theme === 'dark') {
             applyColorScheme('dark');
             toggleColor.checked = true;
         }
     } catch (error) {
-        logError(`Error retrieving scheme from localStorage: ${error}`);
+        logError(`Error retrieving theme from localStorage: ${error}`);
     }
 }
 
@@ -94,6 +94,16 @@ btnBox.addEventListener('change', function (event) {
         setLocalStorage(colorScheme);
     }
 });
+
+/* working on toggle visiblity*/
+function toggleVisibility(selector) {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.style.visibility = element.style.visibility === 'visible' ? 'hidden' : 'visible';
+  }
+}
+settingIcon.addEventListener('click', () => toggleVisibility('.switches-container'));
+
 
 // Log an error message and add it to the error messages array
 function logError(message) {
@@ -135,12 +145,3 @@ retrieveScheme();
 // log and print all errors
 printErrorMessage(errMessages);
 
-/* working on icon*/
-function toggleVisibility(selector) {
-  const element = document.querySelector(selector);
-  if (element) {
-    element.style.visibility = element.style.visibility === 'visible' ? 'hidden' : 'visible';
-  }
-}
-
-settingIcon.addEventListener('click', () => toggleVisibility('.switches-container'));

@@ -84,6 +84,12 @@ body {
 	inset: 0;
 }
 
+.container-fluid{
+	display: grid;
+	grid-template-columns: 10fr 2fr;
+	grid-gap: 2rem;
+}
+
 #hourHand,#minHand, #secHand {
 	transform-origin: center;
 }
@@ -141,6 +147,7 @@ input[type='checkbox'] {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
+	cursor: pointer;
 }
 
 input[type='checkbox']:focus {
@@ -177,18 +184,8 @@ input[type='checkbox']:checked::before {
 }
 
 
-@media screen and (max-width: 1300px) {
-	.switches-container {
-		margin: 2rem 0 5rem 0;
-	}
-}
 
-@media screen and (max-width: 800px) {
-	.switches-container {
-		margin: ;
-	}
-}
-
+/* needs to sanitize */
 .error-container{
 	font-family: sans-serif;
 	font-style: italic;
@@ -209,12 +206,6 @@ input[type='checkbox']:checked::before {
 .error-list{
 	padding-left: 4rem;
 	list-style-type: square;
-}
-
-.container-fluid{
-	display: grid;
-	grid-template-columns: 10fr 2fr;
-	grid-gap: 2rem;
 }
 
 svg.clock {
@@ -240,7 +231,6 @@ svg.clock {
 svg.setting-icon {
 	fill:#7D868E;
 	width: 30%;
-	align-self: ;
 	cursor: pointer;
 	transition: all .2s cubic-bezier(0.6, 1.5, 0.9, 1.2);
 }
@@ -278,7 +268,6 @@ svg.setting-icon:active circle {
     grid-gap: .1rem;
     justify-items: end;
     visibility: hidden;
-
 }
 
 .switches-container::after{  /*tooltip arrow*/
@@ -298,17 +287,53 @@ svg.setting-icon:active circle {
 	position: relative;
 	top: -1rem;
 	margin-right: .5rem;
+	cursor: pointer;
 }
 
-/*.switches-container {
-	display: flex;
-	float: right;
-	transform: translate(-30%, 20%);
+Media Queries 
+@media screen and (max-width: 1150px) {
+	.setting-container{
+		grid-template-rows: 3fr 2fr;
+	    grid-gap: 2rem;
+	}
+
+	.switches-container{ 
+		padding: 1.5rem 2rem;
+		max-height: 30rem;
+	}
+
+	svg.setting-icon {
+		margin-top: 2rem;
+	}
 }
 
-.switches-container label {
-	margin: 1rem 0 0 4rem;
-	float: left;
-	padding: .5rem;
+@media screen and (max-width: 950px) {
+	.container-fluid{
+		grid-template-columns: 8fr 2fr;
+		grid-gap: 1rem;
+	}
 }
-*/
+
+@media screen and (max-width: 750px) {
+	.container-fluid{
+		grid-template-columns: 6fr 2fr;
+		grid-gap: 2rem;
+	}
+}
+
+
+@media screen and (max-width: 700px) {
+	.container-fluid{
+		grid-template-rows: repeat(3, fit-content);
+		grid-template-columns: 1fr;
+		grid-gap: 1rem;
+	}
+
+	svg.setting-icon {
+		fill:#7D868E;
+		width: 10%;
+		cursor: pointer;
+		
+	}
+
+}
