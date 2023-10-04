@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is an hyper-realistic clock application that displays the current time and provides some additional features such as sound effects, light and dark mode color scheme. It's designed to be easy to use and highly customizable to suit your preferences.
+This is an hyper-realistic clock application that displays the current time and provides some additional features such as sound effects, light and dark mode color scheme, remember preference theme. It's designed to be easy to use and highly customizable to suit your preferences.
 
 ## Features
 
