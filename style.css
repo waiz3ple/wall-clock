@@ -15,11 +15,11 @@ html {
 
 :root {
 	/*colors*/
-	--color-primary:   #000;
-	--color-secondary: #fff;
+	--color-dark:      #000;
+	--color-white:     #fff;
 	--color-danger:    #fc0606;
 	--color-success:   #00b4d8;
-	--color-seconds:   var(--color-primary);
+	--color-seconds:   var(--color-dark);
   /*fonts*/
 	--font-1: calligrapher, sans-serif;
 	--font-2: weatherSunday, calligrapher, sans-serif;
@@ -32,40 +32,13 @@ html {
     --arrow-size: 20px;
 }
 
-[data-theme="light"]{
-	/*colors*/
-	--color-primary:   #000;
-	--color-secondary: #fff;
-	--color-danger:    #fc0606;
-	--color-success:   #00b4d8;
-	--color-seconds:   var(--color-primary);
-  /*fonts*/
-	--font-1: calligrapher, sans-serif;
-	--font-2: weatherSunday, calligrapher, sans-serif;
-  /* svg props  */
-	--strokelimit: 10;
-	--linear-gradient: url(#linear-gradient);
-	/*tooltip*/
-	--tooltip-color: brown;
-	--arrow-size: 20px;
-}
-
 [data-theme="dark"]{
-    --color-primary: #fff;
-		--color-secondary: #000;
-		--color-danger: var(--color-primary);
-		--color-success: #343a40;
-		--color-seconds: #fc0606;
-     /*fonts*/
-		--font-1: calligrapher;
-		--font-2: weatherSunday, calligrapher;
-     /* svg props  */
-		--strokelimit: 10;
-		--linear-gradient: var(--color-primary);
-        /*tooltip*/
-        --tooltip-color: brown;
-        --arrow-size: 20px;
-
+    --color-dark: #fff;
+	--color-white: #000;
+	--color-danger: var(--color-dark);
+	--color-success: #343a40;
+	--color-seconds: #fc0606;
+	--linear-gradient: var(--color-dark);
 }
 
 /*_____________________________*/
@@ -73,8 +46,8 @@ body {
 	box-sizing: border-box;
 	font-family: sans-serif;
 	position: relative;
-	background-color: var(--color-secondary);
-	color: var(--color-primary);
+	background-color: var(--color-white);
+	color: var(--color-dark);
 }
 
 * {
@@ -96,7 +69,7 @@ body {
 
 #minsBars {
 	fill: none;
-	stroke: var(--color-primary);
+	stroke: var(--color-dark);
 	stroke-width: 4;
 	stroke-linecap: round;
 	stroke-miterlimit: var(--strokelimit);
@@ -111,7 +84,7 @@ body {
 #numbers {
 	font-size: 4.8rem;
 	font-family: var(--font-1);
-	fill: var(--color-primary);
+	fill: var(--color-dark);
 }
 
 #hourHand {
@@ -120,7 +93,7 @@ body {
 
 #minHand {
 	fill: var(--linear-gradient);
-	stroke: var(--color-secondary);
+	stroke: var(--color-white);
 	stroke-width: 0.3296;
 	stroke-miterlimit: var(--strokelimit);
 }
@@ -190,7 +163,7 @@ input[type='checkbox']:checked::before {
 	font-family: sans-serif;
 	font-style: italic;
 	font-size: 1.3rem;
-	color: #F00;
+	color: var(--color-danger);
 	display: grid;
 	grid-gap:2rem;
 	line-height: 1.5;
@@ -365,7 +338,7 @@ Media Queries
       	justify-self: center;
       }
       
-     .sound{
+     .toggle:last-child{
      	margin-top: 1rem;
      }
 }

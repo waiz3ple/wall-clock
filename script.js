@@ -99,6 +99,19 @@ btnBox.addEventListener('change', function (event) {
     }
 });
 
+/* show current theme on the DOM*/
+function displayCurrentTheme(selector, currTheme){
+    const element = document.querySelector(selector);
+    element.textContent = currTheme.charAt(0).toUpperCase() + currTheme.slice(1) + ' mode';
+}
+
+/*show sound state on the DOM*/
+function displaySoundState(selector, state){
+    const element = document.querySelector(selector);
+    element.textContent = `Sound ${state}`;
+}
+/*_________________*/
+
 /* working on toggle visiblity*/
 function toggleVisibility(selector) {
   const element = document.querySelector(selector);
@@ -151,12 +164,3 @@ retrieveScheme();
 displayErrorMessage(errMessages);
 
 
-function displayCurrentTheme(selector, currTheme){
-    const element = document.querySelector(selector);
-    element.textContent = currTheme.charAt(0).toUpperCase() + currTheme.slice(1) + ' mode';
-}
-
-function displaySoundState(selector, state){
-    const element = document.querySelector(selector);
-    element.textContent = `Sound ${state}`;
-}
