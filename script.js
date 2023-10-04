@@ -86,13 +86,16 @@ function retrieveScheme() {
 // Event listeners
 btnBox.addEventListener('change', function (event) {
     if (event.target.classList.contains('toggle-sound')) {
-        event.target.checked ? playSound() : audio.pause();
+        const soundState = event.target.checked;
+        soundState ? playSound() : audio.pause();
+        displaySoundState('.toggle label[for="toggle-sound"]', soundState ? 'on':'off');
     }
+
     if (event.target.classList.contains('toggle-color')) {
         const colorScheme = event.target.checked ? 'dark' : 'light';
         applyColorScheme(colorScheme);
         setLocalStorage(colorScheme);
-         displayCurrentTheme('.sound label', colorScheme);
+         displayCurrentTheme('.toggle label[for="toggle-color"]', colorScheme);
     }
 });
 
@@ -147,7 +150,13 @@ retrieveScheme();
 // log and print all errors
 displayErrorMessage(errMessages);
 
+
 function displayCurrentTheme(selector, currTheme){
     const element = document.querySelector(selector);
-    element.textContent = currTheme.slice(0,1).toUpperCase() + currTheme.slice(1) + ' mode';
+    element.textContent = currTheme.charAt(0).toUpperCase() + currTheme.slice(1) + ' mode';
+}
+
+function displaySoundState(selector, state){
+    const element = document.querySelector(selector);
+    element.textContent = `Sound ${state}`;
 }
