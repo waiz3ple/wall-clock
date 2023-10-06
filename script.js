@@ -27,7 +27,7 @@ function clock() {
     const sec = time.getSeconds();
     const min = time.getMinutes();
     const hour = time.getHours() % 12 || 12; // Compressed to 12-hours format
-    //Angle of rotation, check the docs/ folder for the calculation detail
+    //Angle of rotation, check the docs folder for the calculation detail
     const secR = sec * 6;
     const minR = min * 6 + sec / 10;
     const hrR = hour * 30 + min / 2 + sec / 120;
@@ -88,25 +88,25 @@ btnBox.addEventListener('change', function (event) {
     if (event.target.classList.contains('toggle-sound')) {
         const soundState = event.target.checked;
         soundState ? playSound() : audio.pause();
-        displaySoundState('.toggle label[for="toggle-sound"]', soundState ? 'on':'off');
+        renderSoundState('.toggle label[for="toggle-sound"]', soundState ? 'on':'off');
     }
 
     if (event.target.classList.contains('toggle-color')) {
         const colorScheme = event.target.checked ? 'dark' : 'light';
         applyColorScheme(colorScheme);
         setLocalStorage(colorScheme);
-         displayCurrentTheme('.toggle label[for="toggle-color"]', colorScheme);
+         renderCurrentTheme('.toggle label[for="toggle-color"]', colorScheme);
     }
 });
 
 /* show current theme on the DOM*/
-function displayCurrentTheme(selector, currTheme){
+function renderCurrentTheme(selector, currTheme){
     const element = document.querySelector(selector);
     element.textContent = currTheme.charAt(0).toUpperCase() + currTheme.slice(1) + ' mode';
 }
 
 /*show sound state on the DOM*/
-function displaySoundState(selector, state){
+function renderSoundState(selector, state){
     const element = document.querySelector(selector);
     element.textContent = `Sound ${state}`;
 }

@@ -10,7 +10,7 @@
 }
 
 html {
-	font-size: 62.50%;
+	font-size: 62.50%; /* default 1rem to 10px */
 }
 
 :root {
@@ -29,7 +29,7 @@ html {
 
 	/*tooltip*/
 	--tooltip-color: brown;
-    --arrow-size: 20px;
+    --arrow-size: 2rem;
 }
 
 [data-theme="dark"]{
@@ -41,7 +41,6 @@ html {
 	--linear-gradient: var(--color-dark);
 }
 
-/*_____________________________*/
 body {
 	box-sizing: border-box;
 	font-family: sans-serif;
@@ -263,7 +262,7 @@ svg.setting-icon:active circle {
 	cursor: pointer;
 }
 
-Media Queries 
+/*Media Queries */
 @media screen and (max-width: 1150px) {
 	.setting-container{
 		grid-template-rows: 3fr 2fr;
@@ -317,7 +316,7 @@ Media Queries
 	    justify-items: start;
 	}
      
-     .switches-container{ 
+     .switches-container{  /* tooltip bod */
      	padding: 1.5rem 2rem;
      	max-height: 30rem;
      	grid-auto-flow: dense;
