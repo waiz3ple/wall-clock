@@ -116,7 +116,13 @@ function renderSoundState(selector, state){
 function toggleVisibility(selector) {
   const element = document.querySelector(selector);
   if (element) {
-    element.style.visibility = element.style.visibility === 'visible' ? 'hidden' : 'visible';
+    if (element.style.visibility === 'visible') {
+      element.style.visibility = 'hidden';
+      element.style.animation = 'animate-tooltip-out 1s forwards'; // Out animation
+    } else {
+      element.style.visibility = 'visible';
+      element.style.animation = 'animate-tooltip-in 1s forwards'; // In animation
+    }
   }
 }
 settingIcon.addEventListener('click', () => toggleVisibility('.switches-container'));
