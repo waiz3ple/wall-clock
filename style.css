@@ -57,7 +57,7 @@ html {
     --ball-color:#F8F8F8;
     --ball-shadow: rgba(0, 0, 0, 0.4);
     --chkbx-bgcolor:hsla(100, 10%, 40%, 0.5);
-    --chkbx-brdr-color:rgba(0,0,0,1);
+    --chkbx-brdr-color:rgba(150,150,150,1);
 
     /*svg*/
     --setting-ball: var(--tooltip-color);
