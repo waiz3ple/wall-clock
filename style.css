@@ -300,6 +300,7 @@ svg.setting-icon:active circle {
 	svg.setting-icon {
 		margin-top: 2rem;
 	}
+
 }
 
 @media screen and (max-width: 950px) {
@@ -321,7 +322,7 @@ svg.setting-icon:active circle {
 	.container-fluid{
 		grid-template-rows: repeat(2, fit-content) minmax(fit-content, 100%);
 		grid-template-columns: 1fr;
-		grid-gap: 1rem;
+		grid-gap: 3rem;
 	}
 
 	svg.setting-icon {
@@ -343,6 +344,7 @@ svg.setting-icon:active circle {
      	grid-auto-flow: dense;
 		direction: ltr;
 		justify-self: end;
+		margin-top: 3.5rem;
      }
 
       .switches-container::after{  /*tooltip arrow*/
@@ -352,9 +354,10 @@ svg.setting-icon:active circle {
       	transform: translate(-9.5rem, -3.9rem);
       }
       
-     .toggle:last-child{
-     	margin-top: 1rem;
+     .toggle:first-child{
+     	margin-bottom: 1rem;
      }
+
 }
 
 @keyframes animate-tooltip-in {
