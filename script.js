@@ -162,5 +162,3 @@ initAudio();
 retrieveScheme();
 // log and print all errors
 displayErrorMessage(errMessages);
-
-
