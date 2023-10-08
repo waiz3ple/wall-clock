@@ -26,7 +26,7 @@ html {
   /* svg props  */
 	--strokelimit: 10;
 	--linear-gradient: url(#linear-gradient);
-	--setting-ball: #0D31C9;
+	--setting-ball: var(--color-success);
 
 	/*tooltip*/
 	--tooltip-color: rgba(150,50,30,1.0);
@@ -52,7 +52,6 @@ html {
 	--tooltip-color: #818181;
 	--label-text-color:#000;
  
-
     /*checkbox*/
     --ball-color:#F8F8F8;
     --ball-shadow: rgba(0, 0, 0, 0.4);
@@ -177,9 +176,6 @@ input[type='checkbox']:checked::before {
 	transition: all 0.3s cubic-bezier(0.6, 1.5, 0.9, 1.2);
 }
 
-
-
-/* needs to sanitize */
 .error-container{
 	font-family: sans-serif;
 	font-style: italic;
@@ -263,6 +259,9 @@ svg.setting-icon:active circle {
     justify-items: end;
     visibility: hidden;
     opacity: 0;
+    /*animation-name: animate-tooltip-out || animate-tooltip-in to be set by JS*/ 
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .switches-container::after{  /*tooltip arrow*/
@@ -360,17 +359,19 @@ svg.setting-icon:active circle {
 
 }
 
+
+/*<== Tooltip  animation ==>*/
 @keyframes animate-tooltip-in {
 	0%{
-      transform: translateY(1rem);
+      transform: translateY(1rem) scale(.7);
       opacity: 0;
 	}
     50%{
-     transform: translateY(-1.5rem) ;
+     transform: translateY(-1.6rem) scale(1.009);
      opacity: 0.8;
 	}
 	100%{
-     transform: translateY(-1rem) ;
+     transform: translateY(-1rem) scale(1.0) ;
      opacity: 1;
 	}
 }
@@ -383,7 +384,7 @@ svg.setting-icon:active circle {
 	}
 
 	100%{
-     transform: translateY(1rem) ;
+     transform: translateY(1rem);
      opacity: 0;
      visibility: hidden;
 	}

@@ -99,7 +99,7 @@ btnBox.addEventListener('change', function (event) {
     }
 });
 
-/* show current theme on the DOM*/
+/* show current theme name on the DOM*/
 function renderCurrentTheme(selector, currTheme){
     const element = document.querySelector(selector);
     element.textContent = currTheme.charAt(0).toUpperCase() + currTheme.slice(1) + ' mode';
@@ -118,10 +118,10 @@ function toggleVisibility(selector) {
   if (element) {
     if (element.style.visibility === 'visible') {
       element.style.visibility = 'hidden';
-      element.style.animation = 'animate-tooltip-out 1s forwards'; // Out animation
+      element.style.animationName = 'animate-tooltip-out'; // Out animation
     } else {
       element.style.visibility = 'visible';
-      element.style.animation = 'animate-tooltip-in 1s forwards'; // In animation
+      element.style.animationName = 'animate-tooltip-in'; // In animation
     }
   }
 }
