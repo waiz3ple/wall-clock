@@ -82,22 +82,6 @@ function retrieveScheme() {
     }
 }
 
-// Event listeners
-btnBox.addEventListener('change', function (event) {
-    if (event.target.classList.contains('toggle-sound')) {
-        const soundState = event.target.checked;
-        soundState ? playSound() : audio.pause();
-        renderSoundState('.toggle label[for="toggle-sound"]', soundState ? 'on':'off');
-    }
-
-    if (event.target.classList.contains('toggle-color')) {
-        const colorScheme = event.target.checked ? 'dark' : 'light';
-        applyColorScheme(colorScheme);
-        setLocalStorage(colorScheme);
-         renderCurrentTheme('.toggle label[for="toggle-color"]', colorScheme);
-    }
-});
-
 /* show current theme name on the DOM*/
 function renderCurrentTheme(selector, currTheme){
     const element = document.querySelector(selector);
@@ -109,7 +93,6 @@ function renderSoundState(selector, state){
     const element = document.querySelector(selector);
     element.textContent = `Sound ${state}`;
 }
-/*_________________*/
 
 /* working on toggle visiblity*/
 function toggleVisibility(selector) {
@@ -124,7 +107,7 @@ function toggleVisibility(selector) {
     }
   }
 }
-settingIcon.addEventListener('click', () => toggleVisibility('.switches-container'));
+/*--------------------------------*/
 
 // Log an error message and add it to the error messages array
 function logError(message) {
@@ -133,7 +116,7 @@ function logError(message) {
 }
 
 // Print error messages and clear previous logged errors 
-function displayErrorMessage(errMsgs) {
+function renderErrorMessage(errMsgs) {
     let html = `
        <ul>
          ${errMsgs.map(err => {
@@ -156,6 +139,24 @@ function clearErrors() {
     errorBox.innerHTML = ''; // Clear the error box
 }
 
+// Event listeners
+btnBox.addEventListener('change', function (event) {
+    if (event.target.classList.contains('toggle-sound')) {
+        const soundState = event.target.checked;
+        soundState ? playSound() : audio.pause();
+        renderSoundState('.toggle label[for="toggle-sound"]', soundState ? 'on':'off');
+    }
+
+    if (event.target.classList.contains('toggle-color')) {
+        const colorScheme = event.target.checked ? 'dark' : 'light';
+        applyColorScheme(colorScheme);
+        setLocalStorage(colorScheme);
+         renderCurrentTheme('.toggle label[for="toggle-color"]', colorScheme);
+    }
+});
+//listening to click on setting icon
+settingIcon.addEventListener('click', () => toggleVisibility('.switches-container'));
+
 //initialize clock
 clock();
 //keep clock in real time
@@ -165,4 +166,4 @@ initAudio();
 // retrieve user's last prefrence color scheme and apply
 retrieveScheme();
 // log and print all errors
-displayErrorMessage(errMessages);
+renderErrorMessage(errMessages);
