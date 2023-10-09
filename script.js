@@ -6,10 +6,9 @@ const toggleColor = document.querySelector('#toggle-color');
 const btnBox = document.querySelector('.switches-container');
 const errorBox = document.querySelector('.error-container');
 const settingIcon = document.querySelector('.setting-icon');
-const coords = [-1, 5]; // SVG circle center point from [0,0]
+const coords = [-1, 5]; // balanced from SVG circle center point at [0,0] when transform-origin is set to center 
 let errMessages = [];
 let audio;
-
 
 /*      <== functions ==>     */
 // Initialize audio, handling any errors
@@ -118,15 +117,14 @@ function toggleVisibility(selector) {
   if (element) {
     if (element.style.visibility === 'visible') {
       element.style.visibility = 'hidden';
-      element.style.animationName = 'animate-tooltip-out'; // Out animation
+      element.style.animationName = 'fade-out'; // Out animation
     } else {
       element.style.visibility = 'visible';
-      element.style.animationName = 'animate-tooltip-in'; // In animation
+      element.style.animationName = 'fade-in'; // In animation
     }
   }
 }
 settingIcon.addEventListener('click', () => toggleVisibility('.switches-container'));
-
 
 // Log an error message and add it to the error messages array
 function logError(message) {
