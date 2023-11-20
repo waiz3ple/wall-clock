@@ -7,7 +7,7 @@
 	const btnBox = document.querySelector('.switches-container');
 	const errorBox = document.querySelector('.error-container');
 	const settingIcon = document.querySelector('.setting-icon');
-	const coordinates = [-1, 5]; // balanced from SVG circle center point at [0,0] when transform-origin is set to center
+	const coordinates = [0.5, 3.5]; // balanced from SVG circle center point at [0,0] when transform-origin is set to center
 	let errMessages = [];
 	let audio;
 
