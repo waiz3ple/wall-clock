@@ -1,12 +1,21 @@
 /*load custom fonts*/
 @font-face {
-	font-family: calligrapher;
-	src: url('./fonts/calligrapher-regular.ttf');
+    font-family: 'calligrapher';
+    src: url('./fonts/calligrapher-regular-webfont.woff2') format('woff2'),
+         url('./fonts/calligrapher-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
+
 @font-face {
-	font-family: weatherSunday;
-	src: url('./fonts/weather-sunday.otf');
+    font-family: 'weatherSunday';
+    src: url('./fonts/weather-sunday-webfont.woff2') format('woff2'),
+         url('./fonts/weather-sunday-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 html {
