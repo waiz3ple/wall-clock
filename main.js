@@ -1,4 +1,6 @@
 // this is OOP version of script.js
+
+
 class Clock {
 	#secondsDeg;
 	#minutesDeg;
@@ -48,3 +50,22 @@ class Clock {
 const clock = new Clock();
 
 setInterval(() => clock.rotateHands(), 1000);
+
+//----------sound----
+class Sound{
+	constructor(audio){
+		this.audio = audio;
+	}
+	PlaySound(){
+		if (this.audio) {
+			this.audio.play();
+			this.audio.loop = true;
+		}
+	}
+}
+
+const audio = new Sound('./sounds/tick-tock.wav');
+console.log(audio)
+
+
+//----------sound----
