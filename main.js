@@ -1,5 +1,9 @@
 // this is OOP version of script.js
-
+class Query{
+	static select(selector) {
+		return document.querySelector(selector);
+	}
+}
 
 class Clock {
 	#secondsDeg;
@@ -10,14 +14,10 @@ class Clock {
 	#hourHand;
 	#coordinate = { x: 0.5, y: 3.5 };
 	
-	static select(selector) {
-		return document.querySelector(selector);
-	}
-
 	constructor() {
-		this.#secHand  = Clock.select('#secHand');
-		this.#minHand  = Clock.select('#minHand');
-		this.#hourHand = Clock.select('#hourHand');
+		this.#secHand  = Query.select('#secHand');
+		this.#minHand  = Query.select('#minHand');
+		this.#hourHand = Query.select('#hourHand');
 		this.rotateHands();
 	}
 
@@ -46,26 +46,69 @@ class Clock {
 	}
 }
  
-
-const clock = new Clock();
-
+const clock = new Clock(); //instance of clock
 setInterval(() => clock.rotateHands(), 1000);
 
-//----------sound----
 class Sound{
 	constructor(audio){
-		this.audio = audio;
+		this.audio = new Audio(audio);
 	}
-	PlaySound(){
+	
+	playSound(){
 		if (this.audio) {
 			this.audio.play();
 			this.audio.loop = true;
 		}
 	}
+
+	pauseSound() {
+		if (this.audio) {
+			this.audio.pause();
+		}
+	}
 }
 
-const audio = new Sound('./sounds/tick-tock.wav');
-console.log(audio)
+const audio = new Sound('./sounds/tick-tock.wav'); //instance of audio
 
 
-//----------sound----
+class Toggler {
+
+	toggleElement(element) {
+		if (element) {
+			const isVisible = element?.style.visibility === 'visible';
+			element.style.visibility = isVisible ? 'hidden' : 'visible';
+			element.style.animationName = isVisible ? 'fade-out' : 'fade-in';
+		}
+	}
+}
+
+
+
+class EventHandler extends Toggler {
+	constructor() {
+		super();
+		this.btnBox = Query.select('.switches-container');
+		this.settings = Query.select('.setting-icon');
+		this.initializeListeners();
+	}
+
+	initializeListeners() {
+		this.btnBox.addEventListener('change', (event) => {
+			if (event.target.classList.contains('toggle-sound')) {
+				const soundState = event.target.checked;
+			    soundState ? audio.playSound() : audio.pauseSound();
+			}
+
+			if (event.target.classList.contains('toggle-color')) {
+				/* this.toggleColor(event); */
+			}
+		});
+
+		this.settings.addEventListener('click', () =>
+			this.toggleElement(this.btnBox)
+		);
+	}
+}
+
+const eventHandler = new EventHandler('#btnBox');
+console.log(eventHandler)
