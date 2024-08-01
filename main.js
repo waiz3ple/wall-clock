@@ -80,6 +80,11 @@ class Toggler {
 			element.style.animationName = isVisible ? 'fade-out' : 'fade-in';
 		}
 	}
+
+	toggleTheme(theme = 'dark') {
+		const root = document.documentElement;
+		root.setAttribute('data-theme', theme);
+	}
 }
 
 
@@ -93,14 +98,15 @@ class EventHandler extends Toggler {
 	}
 
 	initializeListeners() {
-		this.btnBox.addEventListener('change', (event) => {
-			if (event.target.classList.contains('toggle-sound')) {
-				const soundState = event.target.checked;
-			    soundState ? audio.playSound() : audio.pauseSound();
+		this.btnBox.addEventListener('change', (e) => {
+			const isChecked = e.target.checked;
+			if (e.target.classList.contains('toggle-sound')) {
+			    isChecked ? audio.playSound() : audio.pauseSound();
 			}
 
-			if (event.target.classList.contains('toggle-color')) {
-				/* this.toggleColor(event); */
+			if (e.target.classList.contains('toggle-color')) {
+				const theme =  isChecked ? 'dark' : 'light'
+				 this.toggleTheme(theme); 
 			}
 		});
 
