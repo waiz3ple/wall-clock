@@ -50,8 +50,8 @@ const clock = new Clock(); //instance of clock
 setInterval(() => clock.rotateHands(), 1000);
 
 class Sound{
-	constructor(audio){
-		this.audio = new Audio(audio);
+	constructor(audioPath){
+		this.audio = new Audio(audioPath);
 	}
 	
 	playSound(){
@@ -81,13 +81,16 @@ class Toggler {
 		}
 	}
 
-	toggleTheme(theme = 'dark') {
+	toggleTheme(theme) {
 		const root = document.documentElement;
 		root.setAttribute('data-theme', theme);
 	}
+
+	toggleText(state, selector, options) {
+		const element = Query.select(selector);
+		element.textContent = state?options[0]: options[1];
+	}
 }
-
-
 
 class EventHandler extends Toggler {
 	constructor() {
@@ -102,11 +105,13 @@ class EventHandler extends Toggler {
 			const isChecked = e.target.checked;
 			if (e.target.classList.contains('toggle-sound')) {
 			    isChecked ? audio.playSound() : audio.pauseSound();
+				this.toggleText(isChecked, '.toggle label[for="toggle-sound"]', ['Sound On', 'Sound Off'])
 			}
 
 			if (e.target.classList.contains('toggle-color')) {
-				const theme =  isChecked ? 'dark' : 'light'
-				 this.toggleTheme(theme); 
+				const theme =  isChecked ? 'dark' : 'light';
+				this.toggleTheme(theme);
+				this.toggleText(isChecked, '.toggle label[for="toggle-color"]', ['Dark Mode', 'Light Mode']) 
 			}
 		});
 
@@ -116,5 +121,11 @@ class EventHandler extends Toggler {
 	}
 }
 
-const eventHandler = new EventHandler('#btnBox');
+const eventHandler = new EventHandler();
 console.log(eventHandler)
+
+
+// remaining 3 features
+//local stirage
+// error reporting
+// text toggling

@@ -44,9 +44,9 @@ html {
 
     /*checkbox*/
     --ball-color:#FFF;
-    --ball-shadow: rgba(0, 0, 0, 0.4);
-    --chkbx-bgcolor:rgba(100,50,30,1);
-    --chkbx-brdr-color:rgba(180,50,30,1.0);
+    --dark-color-00: rgba(0, 0, 0, 0.4);
+    --dark-color-01:rgba(100,50,30,1);
+    --dark-color-02:rgba(180,50,30,1.0);
 }
 
 [data-theme="dark"]{
@@ -63,9 +63,9 @@ html {
  
     /*checkbox*/
     --ball-color:#F8F8F8;
-    --ball-shadow: rgba(0, 0, 0, 0.4);
-    --chkbx-bgcolor:hsla(100, 10%, 40%, 0.5);
-    --chkbx-brdr-color:rgba(150,150,150,1);
+    --dark-color-00: rgba(0, 0, 0, 0.4);
+    --dark-color-01:hsla(100, 10%, 40%, 0.5);
+    --dark-color-02:rgba(150,150,150,1);
 
     /*svg*/
     --setting-ball: var(--tooltip-color);
@@ -160,9 +160,9 @@ input[type='checkbox']:focus {
 input[type='checkbox'] {
 	width: 5.4rem;
 	height: 2.1rem;
-	border: 3px solid var(--chkbx-brdr-color);
+	border: 3px solid var(--dark-color-02);
 	border-radius: 15px;
-	background-color: var(--chkbx-bgcolor);
+	background-color: var(--dark-color-01);
 	position: relative;
 	padding: 0;
 }
@@ -174,7 +174,7 @@ input[type='checkbox']::before {
 	background-color: var(--ball-color);
 	position: absolute;
 	border-radius: 50%;
-	box-shadow: 0.2rem 0.5rem 1rem var(--ball-shadow);
+	box-shadow: 0.2rem 0.5rem 1rem var(--dark-color-00);
 	transition: all 0.3s ease-out;
 	top: -5px;
 }
@@ -246,7 +246,7 @@ svg.setting-icon:hover circle {
 }
 
 svg.setting-icon:active{
-	fill: #7D8640;
+	fill: color-mix(in srgb, var(--color-success) 70%, var(--dark-color-02) );
 	transform: rotate(25deg);
 }
 
