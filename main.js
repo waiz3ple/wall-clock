@@ -92,6 +92,22 @@ class Toggler {
 	}
 }
 
+class LocalStorage extends Toggler {
+    constructor(){
+		super()
+	}
+	set setTheme(theme){
+		localStorage.setItem('theme', JSON.stringify({ theme }));
+	}
+
+	get getTheme(){
+		return JSON.parse(localStorage.getItem('theme')).theme;
+	}
+}
+
+const local = new LocalStorage();
+console.log(local)
+
 class EventHandler extends Toggler {
 	constructor() {
 		super();
@@ -101,20 +117,28 @@ class EventHandler extends Toggler {
 	}
 
 	initializeListeners() {
+		window.addEventListener('load', () => {
+			if (local.getTheme && local.getTheme !=='light') {
+				this.toggleTheme(local.getTheme)
+				Query.select('#toggle-color').checked = true;
+			}
+		})
+
 		this.btnBox.addEventListener('change', (e) => {
 			const isChecked = e.target.checked;
 			if (e.target.classList.contains('toggle-sound')) {
 			    isChecked ? audio.playSound() : audio.pauseSound();
-				this.toggleText(isChecked, '.toggle label[for="toggle-sound"]', ['Sound On', 'Sound Off'])
+				this.toggleText(isChecked, 'label[for="toggle-sound"]', ['Sound On', 'Sound Off'])
 			}
 
 			if (e.target.classList.contains('toggle-color')) {
 				const theme =  isChecked ? 'dark' : 'light';
 				this.toggleTheme(theme);
-				this.toggleText(isChecked, '.toggle label[for="toggle-color"]', ['Dark Mode', 'Light Mode']) 
+				this.toggleText(isChecked, 'label[for="toggle-color"]', ['Dark Mode', 'Light Mode']) 
+				local.setTheme = theme;
 			}
 		});
-
+        
 		this.settings.addEventListener('click', () =>
 			this.toggleElement(this.btnBox)
 		);
