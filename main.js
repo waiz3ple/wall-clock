@@ -1,4 +1,3 @@
-// this is OOP version of script.js
 class Query{
 	static select(selector) {
 		return document.querySelector(selector);
@@ -44,31 +43,34 @@ class Clock {
 		this.#handRotation(this.#minHand, this.#minutesDeg);
 		this.#handRotation(this.#hourHand, this.#hoursDeg);
 	}
+
+
 }
  
 const clock = new Clock(); //instance of clock
 setInterval(() => clock.rotateHands(), 1000);
 
-class Sound{
+class MediaPlayer{
+	#audio;
 	constructor(audioPath){
-		this.audio = new Audio(audioPath);
+		this.#audio = new Audio(audioPath);
 	}
 	
 	playSound(){
-		if (this.audio) {
-			this.audio.play();
-			this.audio.loop = true;
+		if (this.#audio) {
+			this.#audio.play();
+			this.#audio.loop = true;
 		}
 	}
 
 	pauseSound() {
-		if (this.audio) {
-			this.audio.pause();
+		if (this.#audio) {
+			this.#audio.pause();
 		}
 	}
 }
 
-const audio = new Sound('./sounds/tick-tock.wav'); //instance of audio
+const player = new MediaPlayer('./sounds/tick-tock.wav'); //instance of audio
 
 
 class Toggler {
@@ -88,7 +90,7 @@ class Toggler {
 
 	toggleText(state, selector, options) {
 		const element = Query.select(selector);
-		element.textContent = state?options[0]: options[1];
+		element.textContent = state?options[0]:options[1];
 	}
 }
 
@@ -106,7 +108,7 @@ class LocalStorage extends Toggler {
 }
 
 const local = new LocalStorage();
-console.log(local)
+
 
 class EventHandler extends Toggler {
 	constructor() {
@@ -117,24 +119,30 @@ class EventHandler extends Toggler {
 	}
 
 	initializeListeners() {
-		window.addEventListener('load', () => {
-			if (local.getTheme && local.getTheme !=='light') {
-				this.toggleTheme(local.getTheme)
-				Query.select('#toggle-color').checked = true;
-			}
+		['load','click'].forEach(action => {
+			window.addEventListener(action, (e)=>{
+				if (action === 'load' && local.getTheme && local.getTheme !== 'light') {
+					this.toggleTheme(local.getTheme)
+					Query.select('#color-checkbox').checked = true;
+				}
+				// close tooltip on clickout
+				if (action === 'click' && !this.btnBox.closest('.setting-container').contains(e.target)){
+					this.btnBox.style.visibility = 'hidden'; 
+				}
+			})
 		})
 
 		this.btnBox.addEventListener('change', (e) => {
 			const isChecked = e.target.checked;
-			if (e.target.classList.contains('toggle-sound')) {
-			    isChecked ? audio.playSound() : audio.pauseSound();
-				this.toggleText(isChecked, 'label[for="toggle-sound"]', ['Sound On', 'Sound Off'])
+			if (e.target.classList.contains('sound-checkbox')) {
+			    isChecked ? player.playSound() : player.pauseSound();
+				this.toggleText(isChecked, 'label[for="sound-checkbox"]', ['Sound On', 'Sound Off'])
 			}
 
-			if (e.target.classList.contains('toggle-color')) {
+			if (e.target.classList.contains('color-checkbox')) {
 				const theme =  isChecked ? 'dark' : 'light';
 				this.toggleTheme(theme);
-				this.toggleText(isChecked, 'label[for="toggle-color"]', ['Dark Mode', 'Light Mode']) 
+				this.toggleText(isChecked, 'label[for="color-checkbox"]', ['Dark Mode', 'Light Mode']) 
 				local.setTheme = theme;
 			}
 		});
@@ -146,10 +154,3 @@ class EventHandler extends Toggler {
 }
 
 const eventHandler = new EventHandler();
-console.log(eventHandler)
-
-
-// remaining 3 features
-//local stirage
-// error reporting
-// text toggling

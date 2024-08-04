@@ -3,7 +3,7 @@
 	const secHand = document.querySelector('#secHand');
 	const minHand = document.querySelector('#minHand');
 	const hourHand = document.querySelector('#hourHand');
-	const toggleColor = document.querySelector('#toggle-color');
+	const toggleColor = document.querySelector('#color-checkbox');
 	const btnBox = document.querySelector('.switches-container');
 	const errorBox = document.querySelector('.error-container');
 	const settingIcon = document.querySelector('.setting-icon');
@@ -15,7 +15,7 @@
 	// Initialize audio, handling any errors
 	function initAudio() {
 		try {
-			audio = new Audio('./sounds/tick-tock.wav');
+			audio = new Audio('./sounds/tick-tock.wave');
 		} catch (error) {
 			logError(`Error initializing audio: ${error}`);
 		}
@@ -97,8 +97,7 @@
 	}
 
 	/*  toggle visiblity*/
-	function toggleVisibility(selector) {
-		const element = document.querySelector(selector);
+	function toggleVisibility(element) {
 		if (element) {
 			if (element.style.visibility === 'visible') {
 				element.style.visibility = 'hidden';
@@ -139,26 +138,26 @@
 
 	// Event listeners
 	btnBox.addEventListener('change', function (event) {
-		if (event.target.classList.contains('toggle-sound')) {
+		if (event.target.classList.contains('sound-checkbox')) {
 			const soundState = event.target.checked;
 			soundState ? playSound() : audio.pause();
 			renderSoundState(
-				'.toggle label[for="toggle-sound"]',
+				'.toggle label[for="sound-checkbox"]',
 				soundState ? 'on' : 'off'
 			);
 		}
 
-		if (event.target.classList.contains('toggle-color')) {
+		if (event.target.classList.contains('color-checkbox')) {
 			const colorScheme = event.target.checked ? 'dark' : 'light';
 			applyColorScheme(colorScheme);
 			setLocalStorage(colorScheme);
-			renderCurrentTheme('.toggle label[for="toggle-color"]', colorScheme);
+			renderCurrentTheme('.toggle label[for="color-checkbox"]', colorScheme);
 		}
 	});
 
 	//listening to click on setting icon
 	settingIcon.addEventListener('click', () =>
-		toggleVisibility('.switches-container')
+		toggleVisibility(btnBox)
 	);
 
 	//initialize clock
