@@ -43,8 +43,6 @@ class Clock {
 		this.#handRotation(this.#minHand, this.#minutesDeg);
 		this.#handRotation(this.#hourHand, this.#hoursDeg);
 	}
-
-
 }
  
 const clock = new Clock(); //instance of clock
@@ -126,8 +124,11 @@ class EventHandler extends Toggler {
 					Query.select('#color-checkbox').checked = true;
 				}
 				// close tooltip on clickout
-				if (action === 'click' && !this.btnBox.closest('.setting-container').contains(e.target)){
-					this.btnBox.style.visibility = 'hidden'; 
+				if ( action === 'click' && 
+					this.btnBox.style.visibility ==='visible' &&
+					!this.btnBox.closest('.setting-container').contains(e.target)
+				){
+					this.toggleElement(this.btnBox)	
 				}
 			})
 		})
@@ -147,8 +148,9 @@ class EventHandler extends Toggler {
 			}
 		});
         
-		this.settings.addEventListener('click', () =>
+		this.settings.addEventListener('click', () => {
 			this.toggleElement(this.btnBox)
+			}
 		);
 	}
 }
