@@ -92,10 +92,8 @@ class Toggler {
 	}
 }
 
-class LocalStorage extends Toggler {
-    constructor(){
-		super()
-	}
+class LocalStorage {
+  
 	set setTheme(theme){
 		localStorage.setItem('theme', JSON.stringify({ theme }));
 	}
