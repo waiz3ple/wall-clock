@@ -74,7 +74,6 @@ html {
 body {
 	box-sizing: border-box;
 	font-family: sans-serif;
-	position: relative;
 	background-color: var(--color-white);
 	color: var(--color-dark);
 }
@@ -123,14 +122,14 @@ body {
 #minHand {
 	fill: var(--linear-gradient);
 	stroke: var(--color-white);
-	stroke-width: 0.3296;
+	stroke-width: 0.33;
 	stroke-miterlimit: var(--strokelimit);
 }
 
 #secHand {
 	fill: none;
 	stroke: var(--color-seconds);
-	stroke-width: 5.5669;
+	stroke-width: 5.57;
 	stroke-miterlimit: var(--strokelimit);
 }
 
@@ -220,7 +219,6 @@ svg.clock {
 }
 .setting-container{
 	align-self: end;
-	/*margin-bottom: 10rem;*/
 	display: grid ;
 	grid-template-rows: 2.5fr 1fr;
 	justify-items: center;
