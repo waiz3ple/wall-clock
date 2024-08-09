@@ -70,7 +70,6 @@ class MediaPlayer{
 
 const player = new MediaPlayer('./sounds/tick-tock.wav'); //instance of audio
 
-
 class Toggler {
 
 	toggleElement(element) {
