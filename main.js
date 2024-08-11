@@ -4,6 +4,43 @@ class Query{
 	}
 }
 
+class Logger {
+	#errMessages;
+	#errWrapper = Query.select('.error-list');
+	#errContainer = Query.select('.error-container');
+
+	constructor() {
+		this.#errMessages = [];
+	}
+
+	log() {
+		if (this.#errMessages.length) {
+			const ul = document.createElement('ul');
+			ul.classList.add('error-list')
+
+			this.#errMessages.forEach(errMessage => {
+				const li = document.createElement('li');
+				li.textContent = errMessage;
+				ul.appendChild(li);
+			});
+			this.#errContainer.prepend(ul);
+			return;
+		}
+		this.#errContainer.style.display = 'none';
+	}
+
+	dismiss() {
+		this.#errMessages = [];
+		this.#errContainer.style.display = 'none';
+	}
+
+	set setError(err){
+		this.#errMessages.push(err);
+	}
+}
+
+const logger = new Logger();
+
 class Clock {
 	#secondsDeg;
 	#minutesDeg;
@@ -14,8 +51,8 @@ class Clock {
 	#coordinate = { x: 0.5, y: 3.5 };
 	
 	constructor() {
-		this.#secHand  = Query.select('#secHand');
-		this.#minHand  = Query.select('#minHand');
+		this.#secHand = Query.select('#secHand');
+		this.#minHand = Query.select('#minHand');
 		this.#hourHand = Query.select('#hourHand');
 		this.rotateHands();
 	}
@@ -34,7 +71,11 @@ class Clock {
 
 	#handRotation(hand, angle) {
 		const { x, y } = this.#coordinate;
-		hand.setAttribute('transform', `rotate(${angle}, ${x}, ${y})`);
+		try {
+			hand.setAttribute('transform', `rotate(${angle}, ${x}, ${y})`);
+		} catch (err) {
+			logger.setError = `Error rotating clock hand, ${err.message}`;
+		}
 	}
 
 	 rotateHands() {
@@ -51,7 +92,11 @@ setInterval(() => clock.rotateHands(), 1000);
 class MediaPlayer{
 	#audio;
 	constructor(audioPath){
-		this.#audio = new Audio(audioPath);
+		try {
+			this.#audio = new Audio(audioPath);
+		} catch (err) {
+			logger.setError = `Error initializing audio, ${err.message}`;
+		}
 	}
 	
 	playSound(){
@@ -94,11 +139,19 @@ class Toggler {
 class LocalStorage {
   
 	set setTheme(theme){
-		localStorage.setItem('theme', JSON.stringify({ theme }));
+		try {
+			localStorage.setItem('theme', JSON.stringify({ theme }));
+		} catch (err) {
+			logger.setError = `Error setting local storage, ${err.message}`;
+		}
 	}
 
 	get getTheme(){
-		return JSON.parse(localStorage.getItem('theme')).theme;
+		try {
+			return JSON.parse(localStorage.getItem('theme')).theme;
+		} catch (err) {
+			logger.setError = `Error retrieving from local storage ${err.message}`;
+		}
 	}
 }
 
@@ -110,6 +163,7 @@ class EventHandler extends Toggler {
 		super();
 		this.btnBox = Query.select('.switches-container');
 		this.settings = Query.select('.setting-icon');
+		this.closedIcon = Query.select('.closed');
 		this.initializeListeners();
 	}
 
@@ -145,11 +199,17 @@ class EventHandler extends Toggler {
 			}
 		});
         
+		
 		this.settings.addEventListener('click', () => {
 			this.toggleElement(this.btnBox)
 			}
 		);
+
+		this.closedIcon.addEventListener('click', ()=>{
+			logger.dismiss()
+		})
 	}
 }
 
 const eventHandler = new EventHandler();
+logger.log()

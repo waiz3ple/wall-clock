@@ -87,7 +87,7 @@ body {
 
 .container-fluid{
 	display: grid;
-	grid-template-columns: 10fr 2fr;
+	grid-template-columns: 5fr 1fr;
 	grid-gap: 2rem;
 }
 
@@ -184,42 +184,48 @@ input[type='checkbox']:checked::before {
 	transition: all 0.3s cubic-bezier(0.6, 1.5, 0.9, 1.2);
 }
 
-.error-container{
+.error-container {
+	grid-column: 1/-1;
+	display: flex;
+	padding: 2rem;
+    justify-content: space-between;
 	font-family: sans-serif;
 	font-style: italic;
 	font-size: 1.3rem;
 	color: var(--color-danger);
-	display: grid;
-	grid-gap:2rem;
 	line-height: 1.5;
-	grid-template-columns: 10fr  1fr;
+
+	& ul {
+		list-style: none;
+	}
+	
+	& .closed {
+		cursor: pointer;
+		background-color: var(--color-success);
+		border-radius: 50%;
+		width: 3rem;
+		height: 3rem;
+		display: grid;
+		justify-items: center;
+		align-items: center;
+		color: #FFF;
+	}
 }
 
-.close{
-	justify-self: right;
-	padding-right: 2rem;
-	cursor: pointer;
-}
 
-.error-list{
-	padding-left: 4rem;
-	list-style-type: square;
-}
 
 svg.clock {
 	pointer-events: none;
     max-height: 90vh;
     justify-self: center;
     margin: 1rem ;
-    ;
 }
 
-.error-container{
-	grid-column: 1/-1;
-}
+
 .setting-container{
 	align-self: end;
 	display: grid ;
+	grid-column: 2/-1;
 	grid-template-rows: 2.5fr 1fr;
 	justify-items: center;
     grid-gap: 1rem;
@@ -363,7 +369,12 @@ svg.setting-icon:active circle {
      .toggle:first-child{
      	margin-bottom: 1rem;
      }
-
+		.clock,
+		.error-container, 
+		.setting-container  {
+          grid-column: 1/-1;
+		}
+		
 }
 
 
