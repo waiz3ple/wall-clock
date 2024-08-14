@@ -6,7 +6,6 @@ class Query{
 
 class Logger {
 	#errMessages;
-	#errWrapper = Query.select('.error-list');
 	#errContainer = Query.select('.error-container');
 
 	constructor() {
@@ -107,9 +106,7 @@ class MediaPlayer{
 	}
 
 	pauseSound() {
-		if (this.#audio) {
-			this.#audio.pause();
-		}
+		if (this.#audio) this.#audio.pause()
 	}
 }
 
@@ -163,7 +160,7 @@ class EventHandler extends Toggler {
 		super();
 		this.btnBox = Query.select('.switches-container');
 		this.settings = Query.select('.setting-icon');
-		this.closedIcon = Query.select('.closed');
+		this.closedIcon = Query.select('.close');
 		this.initializeListeners();
 	}
 
