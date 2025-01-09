@@ -1,12 +1,8 @@
-class Query{
-	static select(selector) {
-		return document.querySelector(selector);
-	}
-}
-
+import { MediaPlayer } from './utils/mediaPlayer';
+import { selector } from './utils/querySelector';
 class Logger {
 	#errMessages;
-	#errContainer = Query.select('.error-container');
+	#errContainer = selector('.error-container');
 
 	constructor() {
 		this.#errMessages = [];
@@ -50,9 +46,9 @@ class Clock {
 	#coordinate = { x: 0.5, y: 3.5 };
 	
 	constructor() {
-		this.#secHand = Query.select('#secHand');
-		this.#minHand = Query.select('#minHand');
-		this.#hourHand = Query.select('#hourHand');
+		this.#secHand = selector('#secHand');
+		this.#minHand = selector('#minHand');
+		this.#hourHand = selector('#hourHand');
 		this.rotateHands();
 	}
 
@@ -88,28 +84,6 @@ class Clock {
 const clock = new Clock(); //instance of clock
 setInterval(() => clock.rotateHands(), 1000);
 
-class MediaPlayer{
-	#audio;
-	constructor(audioPath){
-		try {
-			this.#audio = new Audio(audioPath);
-		} catch (err) {
-			logger.setError = `Error initializing audio, ${err.message}`;
-		}
-	}
-	
-	playSound(){
-		if (this.#audio) {
-			this.#audio.play();
-			this.#audio.loop = true;
-		}
-	}
-
-	pauseSound() {
-		if (this.#audio) this.#audio.pause()
-	}
-}
-
 const player = new MediaPlayer('./sounds/tick-tock.wav'); //instance of audio
 
 class Toggler {
@@ -128,7 +102,7 @@ class Toggler {
 	}
 
 	toggleText(state, selector, options) {
-		const element = Query.select(selector);
+		const element = selector(selector);
 		element.textContent = state?options[0]:options[1];
 	}
 }
@@ -158,9 +132,9 @@ const local = new LocalStorage();
 class EventHandler extends Toggler {
 	constructor() {
 		super();
-		this.btnBox = Query.select('.switches-container');
-		this.settings = Query.select('.setting-icon');
-		this.closedIcon = Query.select('.close');
+		this.btnBox = selector('.switches-container');
+		this.settings = selector('.setting-icon');
+		this.closedIcon = selector('.close');
 		this.initializeListeners();
 	}
 
@@ -169,7 +143,7 @@ class EventHandler extends Toggler {
 			window.addEventListener(action, (e)=>{
 				if (action === 'load' && local.getTheme && local.getTheme !== 'light') {
 					this.toggleTheme(local.getTheme)
-					Query.select('#color-checkbox').checked = true;
+					selector('#color-checkbox').checked = true;
 				}
 				// close tooltip on clickout
 				if ( action === 'click' && 

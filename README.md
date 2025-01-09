@@ -2,87 +2,119 @@
 
 ## Overview
 
-This is an hyper-realistic clock application that displays the current time and provides some additional features such as sound effects, light and dark mode color scheme, remember preference theme. It's designed to show how detailed I can be.
+The **Analog Wall Clock** is a feature-rich application that displays the current time with additional functionalities such as sound effects, light and dark mode color schemes, and the ability to remember user preferences.
+
+---
 
 ## Features
 
-### 1. Real-time Clock
+### 1. Real-Time Clock
 
-- The application displays the current time with three clock hands (hour, minute, and second).
-- The clock updates in real-time, accurately reflecting the current time.
+- Displays the current time with three clock hands: hour, minute, and second.
+- Updates in real-time to ensure precise timekeeping.
 
 ### 2. Sound Effects
 
-- You can enable/disable clock ticking sound effects.
-- When enabled, the clock emits a ticking sound every second.
+- Option to enable or disable clock ticking sound effects.
+- Emits a ticking sound every second when enabled.
 
 ### 3. Color Scheme
 
-- You can choose between a dark and light color scheme for the clock.
-- The color scheme preference is stored in your browser's local storage and persists across sessions.
+- Offers a choice between light and dark mode for the clock’s appearance.
+- Saves the selected color scheme in the browser's local storage for consistent user experience across sessions.
 
 ### 4. Error Handling
 
-- The application gracefully handles errors related to audio initialization, sound playback, and local storage.
-- Any errors that occur are logged and displayed in the error message box.
+- Handles errors related to audio initialization, sound playback, and local storage gracefully.
+- Displays errors in a dismissible error message box.
+
+---
 
 ## Getting Started
 
 ### Prerequisites
 
-You will need a web browser that supports SVG and JavaScript.
+Ensure you have a modern web browser that supports:
+
+- **SVG** for rendering the clock’s graphics.
+- **JavaScript** for real-time updates and interactivity.
 
 ### Installation
 
-1. Clone the repository:
-
-```
+1. **Clone the repository**:
+   ```bash
    git clone https://github.com/waiz3ple/wall-clock.git
-```
-
-2. Navigate to the project directory:
-
-  ``` 
+   ```
+2. **Navigate to the project directory**:
+   ```bash
    cd wall-clock
- ```  
+   ```
+3. **Run the application**:
+   ```bash
+   npm run dev
+   ```
+   Ensure you have Node.js installed on your machine.
 
-3. Open the `index.html` file in your preferred web browser.
+---
 
 ## Usage
 
 - **Sound Toggle**: Use the "Toggle Sound" switch to enable or disable ticking sound effects.
-- **Color Scheme Toggle**: Use the "Toggle Color Scheme" switch to switch between dark and light color schemes.
-- **Error Messages**: If any errors occur (e.g., audio initialization fails), they will be displayed in the error message box. Click "close" to clear the error messages.
+- **Color Scheme Toggle**: Use the "Toggle Color Scheme" switch to switch between dark and light modes.
+- **Error Messages**: Any errors (e.g., audio initialization failure) are displayed in the error message box. Click "Close" to dismiss the messages.
+
+---
 
 ## Preview
 
-You can see a live demo of the clock here: [Live Demo](https://waiz3ple.github.io/wall-clock)
+View a live demo of the clock here: [Live Demo](https://waiz3ple.github.io/wall-clock)
 
+---
 
 ## Customization
 
-- If you want to use a custom ticking sound, replace `tick-tock.wav` in the `sounds` folder with your desired audio file. Ensure it's in a compatible format (e.g., WAV).
-- You can further customize the clock appearance by modifying the CSS in `styles.css`.
-- Error handling and logging can be enhanced by modifying the error-handling functions in the JavaScript code.
+### Ticking Sound
+
+- Replace the `tick-tock.wav` file in the `sounds` folder with your desired audio file to use a custom ticking sound.
+- Ensure the new file is in a compatible format, such as **WAV**.
+
+### Appearance
+
+- Customize the clock’s design by editing the `styles.css` file.
+
+### Error Handling
+
+- Enhance error handling and logging by updating the error-handling functions in the JavaScript file.
+
+---
 
 ## Dependencies
 
-- This clock application relies on HTML, CSS, and JavaScript. No external libraries or frameworks are used.
+- **None**
+
+### DevDependencies
+
+- **Vite**
+
+---
 
 ## License
 
-This clock application is open-source and available under the [MIT License](LICENSE).
-**Please do not claim this project as yours**
+This project is open-source and licensed under the [MIT License](LICENSE).
+
+**Please do not claim this project as your own.**
+
+---
 
 ## Author
 
-- Wasiu Ramoni
-- GitHub: [GitHub Profile](https://github.com/waiz3ple)
+- **Wasiu Ramoni**
+- GitHub: [@waiz3ple](https://github.com/waiz3ple)
+
+---
 
 ## Contact
 
-If you have any questions, suggestions, or issues, please feel free to reach out to me:
-
-- Email: wasiu@ramoni.pro
-- Twitter: [@waiz3ple](https://twitter.com/waiz3ple)
-- Telegram: [t.me/waiz3ple](https://t.me/waiz3ple)
+Feel free to reach out with questions, suggestions, or feedback:
+- **Twitter**: [@waiz3ple](https://x.com/waiz3ple)
+- **Telegram**: [t.me/waiz3ple](https://t.me/waiz3ple)
