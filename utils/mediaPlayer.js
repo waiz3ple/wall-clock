@@ -1,10 +1,10 @@
 export class MediaPlayer{
 	#audio;
-	constructor(audioPath, errMessage){
+	constructor(audioPath, errReporter){
 		try {
 			this.#audio = new Audio(audioPath);
 		} catch (err) {
-			errMessage['setError'] = `Error initializing audio, ${err.message}`;
+			errReporter.setError = `Error initializing audio, ${err.message}`;
 		}
 	}
 	
@@ -20,3 +20,7 @@ export class MediaPlayer{
 	}
 }
 
+export const { playSound, pauseSound } = new MediaPlayer('./sounds/tick-tock.wav', logger); //singleton instance of MediaPlayer
+
+
+// work on logger class

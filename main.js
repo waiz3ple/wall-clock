@@ -1,39 +1,7 @@
-import { MediaPlayer } from './utils/mediaPlayer';
 import { selector } from './utils/querySelector';
-import Toggler, { toggleElement, toggleText, toggleTheme } from './utils/toggler';
-class Logger {
-	#errMessages;
-	#errContainer = selector('.error-container');
 
-	constructor() {
-		this.#errMessages = [];
-	}
+import Events from './utils/events';
 
-	log() {
-		if (this.#errMessages.length) {
-			const ul = document.createElement('ul');
-			ul.classList.add('error-list')
-
-			this.#errMessages.forEach(errMessage => {
-				const li = document.createElement('li');
-				li.textContent = errMessage;
-				ul.appendChild(li);
-			});
-			this.#errContainer.prepend(ul);
-			return;
-		}
-		this.#errContainer.style.display = 'none';
-	}
-
-	dismiss() {
-		this.#errMessages = [];
-		this.#errContainer.style.display = 'none';
-	}
-
-	set setError(err){
-		this.#errMessages.push(err);
-	}
-}
 
 const logger = new Logger();  
 
@@ -85,7 +53,7 @@ class Clock {
 const clock = new Clock(); //instance of clock
 setInterval(() => clock.rotateHands(), 1000);
 
-const player = new MediaPlayer('./sounds/tick-tock.wav', logger); //instance of audio
+//const player = new MediaPlayer('./sounds/tick-tock.wav', logger); /** @need attention */
 
 class LocalStorage {
   
@@ -108,59 +76,5 @@ class LocalStorage {
 
 const local = new LocalStorage();
 
-
-class EventHandler extends Toggler {
-    constructor() {
-        super();
-		this.btnBox = selector('.switches-container');
-		this.settings = selector('.setting-icon');
-		this.closedIcon = selector('.close');
-		this.initializeListeners();
-	}
-
-	initializeListeners() {
-		['load','click'].forEach(action => {
-			window.addEventListener(action, (e)=>{
-				if (action === 'load' && local.getTheme && local.getTheme !== 'light') {
-					toggleTheme(local.getTheme)
-					selector('#color-checkbox').checked = true;
-				}
-				// close tooltip on clickout
-				if ( action === 'click' && 
-					this.btnBox.style.visibility ==='visible' &&
-					!this.btnBox.closest('.setting-container').contains(e.target)
-				){
-					toggleElement(this.btnBox)	
-				}
-			})
-		})
-
-		this.btnBox.addEventListener('change', (e) => {
-			const isChecked = e.target.checked;
-			if (e.target.classList.contains('sound-checkbox')) {
-			    isChecked ? player.playSound() : player.pauseSound();
-				toggleText(isChecked, 'label[for="sound-checkbox"]', ['Sound On', 'Sound Off'])
-			}
-
-			if (e.target.classList.contains('color-checkbox')) {
-				const theme =  isChecked ? 'dark' : 'light';
-				toggleTheme(theme);
-				toggleText(isChecked, 'label[for="color-checkbox"]', ['Dark Mode', 'Light Mode']) 
-				local.setTheme = theme;
-			}
-		});
-        
-		
-		this.settings.addEventListener('click', () => {
-			    toggleElement(this.btnBox)
-			}
-		);
-
-		this.closedIcon.addEventListener('click', ()=>{
-			logger.dismiss()
-		})
-	}
-}
-
-const eventHandler = new EventHandler();
+const eventHandler = new Events();
 logger.log()
