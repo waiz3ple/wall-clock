@@ -1,7 +1,8 @@
+import mediaPlayer from './mediaPlayer';
 import { selector } from './querySelector';
 import Toggler, { toggleElement, toggleText, toggleTheme } from './toggler';
-import { MediaPlayer } from './mediaPlayer';
 
+//const { playSound, pauseSound } = mediaPlayer;
 class Events extends Toggler {
     constructor() {
         super();
@@ -31,7 +32,7 @@ class Events extends Toggler {
 		this.btnBox.addEventListener('change', (e) => {
 			const isChecked = e.target.checked;
 			if (e.target.classList.contains('sound-checkbox')) {
-			    isChecked ? player.playSound() : player.pauseSound();
+			    isChecked ? mediaPlayer.playSound() : mediaPlayer.pauseSound();
 				toggleText(isChecked, 'label[for="sound-checkbox"]', ['Sound On', 'Sound Off'])
 			}
 

@@ -1,4 +1,5 @@
-export class MediaPlayer{
+import logger from './logger';
+class MediaPlayer{
 	#audio;
 	constructor(audioPath, errReporter){
 		try {
@@ -20,7 +21,6 @@ export class MediaPlayer{
 	}
 }
 
-export const { playSound, pauseSound } = new MediaPlayer('./sounds/tick-tock.wav', logger); //singleton instance of MediaPlayer
+const mediaPlayer = new MediaPlayer('/sounds/tick-tock.wav', logger);
 
-
-// work on logger class
+export default mediaPlayer;

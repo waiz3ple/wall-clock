@@ -1,6 +1,6 @@
+import { selector } from './querySelector';
 
-
-export class Logger {
+class Logger {
     #errMessages;
     #errContainer = selector('.error-container');
 
@@ -33,3 +33,5 @@ export class Logger {
         this.#errMessages.push(err);
     }
 }
+
+export  default new Logger(); //singleton instance of Logger

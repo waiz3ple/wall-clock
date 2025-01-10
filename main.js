@@ -1,9 +1,7 @@
-import { selector } from './utils/querySelector';
-
 import Events from './utils/events';
-
-
-const logger = new Logger();  
+import LocalStorage from './utils/localstorage';
+import logger from './utils/logger';
+import { selector } from './utils/querySelector';
 
 class Clock {
 	#secondsDeg;
@@ -53,28 +51,6 @@ class Clock {
 const clock = new Clock(); //instance of clock
 setInterval(() => clock.rotateHands(), 1000);
 
-//const player = new MediaPlayer('./sounds/tick-tock.wav', logger); /** @need attention */
-
-class LocalStorage {
-  
-	set setTheme(theme){
-		try {
-			localStorage.setItem('theme', JSON.stringify({ theme }));
-		} catch (err) {
-			logger.setError = `Error setting local storage, ${err.message}`;
-		}
-	}
-
-	get getTheme(){
-		try {
-			return JSON.parse(localStorage.getItem('theme')).theme;
-		} catch (err) {
-			logger.setError = `Error retrieving from local storage ${err.message}`;
-		}
-	}
-}
-
 const local = new LocalStorage();
-
 const eventHandler = new Events();
 logger.log()
