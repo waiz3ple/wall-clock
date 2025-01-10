@@ -1,10 +1,10 @@
-class MediaPlayer{
+export class MediaPlayer{
 	#audio;
-	constructor(audioPath){
+	constructor(audioPath, errMessage){
 		try {
 			this.#audio = new Audio(audioPath);
 		} catch (err) {
-			logger.setError = `Error initializing audio, ${err.message}`;
+			errMessage['setError'] = `Error initializing audio, ${err.message}`;
 		}
 	}
 	
@@ -19,6 +19,4 @@ class MediaPlayer{
 		if (this.#audio) this.#audio.pause()
 	}
 }
-
-export { MediaPlayer };
 
