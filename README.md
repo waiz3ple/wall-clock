@@ -88,16 +88,6 @@ View a live demo of the clock here: [Live Demo](https://waiz3ple.github.io/wall-
 
 ---
 
-## Dependencies
-
-- **None**
-
-### DevDependencies
-
-- **Vite**
-
----
-
 ## License
 
 This project is open-source and licensed under the [MIT License](LICENSE).
