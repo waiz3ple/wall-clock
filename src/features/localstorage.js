@@ -1,5 +1,4 @@
-export class LocalStorage {
-  
+class LocalStorage {
 	set setTheme(theme){
 		try {
 			localStorage.setItem('theme', JSON.stringify({ theme }));
@@ -16,3 +15,5 @@ export class LocalStorage {
 		}
 	}
 }
+
+export default new LocalStorage();

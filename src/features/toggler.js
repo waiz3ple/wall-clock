@@ -1,4 +1,5 @@
-import { selector } from './querySelector';
+import { selector } from '../helper/querySelector';
+
 class Toggler {
 	toggleElement(element) {
 		if (element) {
@@ -13,8 +14,8 @@ class Toggler {
 		root.setAttribute('data-theme', theme);
 	}
 
-	toggleText(state, selectEl, options) {
-		const element = selector(selectEl);
+	toggleText(state, select, options) {
+		const element = selector(select);
 		element.textContent = state?options[0]:options[1];
 	}
 }

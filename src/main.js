@@ -1,7 +1,6 @@
-import Events from './utils/events';
-import LocalStorage from './utils/localstorage';
-import logger from './utils/logger';
-import { selector } from './utils/querySelector';
+import Events from './features/events';
+import logger from './features/logger';
+import { selector } from './helper/querySelector';
 
 class Clock {
 	#secondsDeg;
@@ -51,6 +50,5 @@ class Clock {
 const clock = new Clock(); //instance of clock
 setInterval(() => clock.rotateHands(), 1000);
 
-const local = new LocalStorage();
-const eventHandler = new Events();
+const eventsInstance = new Events();
 logger.log()

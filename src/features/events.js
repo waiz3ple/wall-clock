@@ -1,5 +1,6 @@
+import { selector } from '../helper/querySelector';
+import local from './localstorage';
 import mediaPlayer from './mediaPlayer';
-import { selector } from './querySelector';
 import Toggler, { toggleElement, toggleText, toggleTheme } from './toggler';
 
 //const { playSound, pauseSound } = mediaPlayer;

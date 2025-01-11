@@ -2,7 +2,8 @@ import logger from './logger';
 class MediaPlayer{
 	#audio;
 	constructor(audioPath, errReporter){
-		try {
+        try {
+            if (!audioPath)  throw new Error("Audio path is required.");
 			this.#audio = new Audio(audioPath);
 		} catch (err) {
 			errReporter.setError = `Error initializing audio, ${err.message}`;
@@ -11,7 +12,7 @@ class MediaPlayer{
 	
 	playSound(){
 		if (this.#audio) {
-			this.#audio.play();
+			this.#audio?.play();
 			this.#audio.loop = true;
 		}
 	}
@@ -21,6 +22,7 @@ class MediaPlayer{
 	}
 }
 
-const mediaPlayer = new MediaPlayer('/sounds/tick-tock.wav', logger);
+//const mediaPlayer = new MediaPlayer('./src/asset/sounds/tick-tock.wav', logger);
+const mediaPlayer = new MediaPlayer('assets/tick-tock.wav', logger);  //for  gh-pages
 
 export default mediaPlayer;

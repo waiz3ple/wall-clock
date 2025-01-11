@@ -1,4 +1,4 @@
-import { selector } from './querySelector';
+import { selector } from '../helper/querySelector';
 
 class Logger {
     #errMessages;
