@@ -8,6 +8,5 @@ yarn-debug.log*
 node_modules/
 
 # Build files
-dist/
 build/
 out/
