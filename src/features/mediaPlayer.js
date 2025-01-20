@@ -1,12 +1,15 @@
 import logger from './logger';
 class MediaPlayer{
 	#audio;
-	constructor(audioPath, errReporter){
+	constructor(audioPath, errMsg){
         try {
-            if (!audioPath)  throw new Error("Audio path is required.");
+            if (!audioPath) {
+                errMsg.setError = "Audio path is required.";
+                return;
+             }
 			this.#audio = new Audio(audioPath);
 		} catch (err) {
-			errReporter.setError = `Error initializing audio, ${err.message}`;
+			errMsg.setError = `Error initializing audio, ${err.message}`;
 		}
 	}
 	
