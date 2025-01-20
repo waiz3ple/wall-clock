@@ -51,14 +51,13 @@ class Clock {
  
 
 (function () {
-//---------clock-------
-const clock = new Clock();
+    const clock = new Clock();
     clock.start();
     
-//---------events-------
-const event = new Events();
+    const event = new Events();
     event.setups();
 
-    //---------logger-------
-logger.log()
-})()
+    logger.log()
+})();
+
+

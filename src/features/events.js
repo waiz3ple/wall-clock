@@ -3,17 +3,16 @@ import local from './localstorage';
 import mediaPlayer from './mediaPlayer';
 import Toggler, { toggleElement, toggleText, toggleTheme } from './toggler';
 
-//const { playSound, pauseSound } = mediaPlayer;
 class Events extends Toggler {
     constructor() {
         super();
 		this.btnBox = selector('.switches-container');
 		this.settings = selector('.setting-icon');
 		this.closedIcon = selector('.close');
-		this.setups();
+		this.initializeListeners();
 	}
 
-	setups() {
+	initializeListeners() {
 		['load','click'].forEach(action => {
 			window.addEventListener(action, (e)=>{
 				if (action === 'load' && local.getTheme && local.getTheme !== 'light') {
@@ -29,29 +28,30 @@ class Events extends Toggler {
 				}
 			})
 		})
+	}
 
+	setups() {
 		this.btnBox.addEventListener('change', (e) => {
 			const isChecked = e.target.checked;
 			if (e.target.classList.contains('sound-checkbox')) {
-			    isChecked ? mediaPlayer.playSound() : mediaPlayer.pauseSound();
+				isChecked ? mediaPlayer.playSound() : mediaPlayer.pauseSound();
 				toggleText(isChecked, 'label[for="sound-checkbox"]', ['Sound On', 'Sound Off'])
 			}
 
 			if (e.target.classList.contains('color-checkbox')) {
-				const theme =  isChecked ? 'dark' : 'light';
+				const theme = isChecked ? 'dark' : 'light';
 				toggleTheme(theme);
-				toggleText(isChecked, 'label[for="color-checkbox"]', ['Dark Mode', 'Light Mode']) 
+				toggleText(isChecked, 'label[for="color-checkbox"]', ['Dark Mode', 'Light Mode'])
 				local.setTheme = theme;
 			}
 		});
-        
-		
-		this.settings.addEventListener('click', () => {
-			    toggleElement(this.btnBox)
-			}
-		);
 
-		this.closedIcon.addEventListener('click', ()=>{
+
+		this.settings.addEventListener('click', () => {
+			toggleElement(this.btnBox)
+		});
+
+		this.closedIcon.addEventListener('click', () => {
 			logger.dismiss()
 		})
 	}
