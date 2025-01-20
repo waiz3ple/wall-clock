@@ -10,10 +10,10 @@ class Events extends Toggler {
 		this.btnBox = selector('.switches-container');
 		this.settings = selector('.setting-icon');
 		this.closedIcon = selector('.close');
-		this.initializeListeners();
+		this.setups();
 	}
 
-	initializeListeners() {
+	setups() {
 		['load','click'].forEach(action => {
 			window.addEventListener(action, (e)=>{
 				if (action === 'load' && local.getTheme && local.getTheme !== 'light') {

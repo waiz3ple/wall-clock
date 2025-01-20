@@ -15,7 +15,7 @@ class Clock {
 		this.#secHand = selector('#secHand');
 		this.#minHand = selector('#minHand');
 		this.#hourHand = selector('#hourHand');
-		this.rotateHands();
+		this.start();
 	}
 
 	#updateTime() {
@@ -39,16 +39,26 @@ class Clock {
 		}
 	}
 
-	 rotateHands() {
-		this.#updateTime();
+    start() {
+		setInterval(() => {
+        this.#updateTime();
 		this.#handRotation(this.#secHand, this.#secondsDeg);
 		this.#handRotation(this.#minHand, this.#minutesDeg);
 		this.#handRotation(this.#hourHand, this.#hoursDeg);
+        }, 1000);
 	}
 }
  
-const clock = new Clock(); //instance of clock
-setInterval(() => clock.rotateHands(), 1000);
 
-const eventsInstance = new Events();
+(function () {
+//---------clock-------
+const clock = new Clock();
+    clock.start();
+    
+//---------events-------
+const event = new Events();
+    event.setups();
+
+    //---------logger-------
 logger.log()
+})()

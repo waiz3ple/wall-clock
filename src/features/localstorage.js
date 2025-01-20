@@ -1,3 +1,4 @@
+import logger from "./logger";
 class LocalStorage {
 	set setTheme(theme){
 		try {

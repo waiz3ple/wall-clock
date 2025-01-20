@@ -22,7 +22,10 @@ class MediaPlayer{
 	}
 }
 
-//const mediaPlayer = new MediaPlayer('./src/asset/sounds/tick-tock.wav', logger);   //for local development - Vite dev server
-const mediaPlayer = new MediaPlayer('assets/tick-tock.wav', logger);  //for  gh-pages
+const audioPath = (import.meta.env.MODE === 'development')
+    ? './src/assets/sounds/tick-tock.wav'
+    : 'assets/tick-tock.wav';
+
+const mediaPlayer = new MediaPlayer(audioPath, logger);  //instance of mediaPlayer
 
 export default mediaPlayer;
