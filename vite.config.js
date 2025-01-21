@@ -13,7 +13,7 @@ export default defineConfig({
     plugins: [
         viteStaticCopy({
         targets: [{
-          src: 'src/assets/**/*.wav',
+          src: '**/*.wav',
           dest: 'assets', 
         }],
      }),
