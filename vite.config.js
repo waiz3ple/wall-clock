@@ -1,21 +1,24 @@
 import { defineConfig } from "vite";
+import { viteStaticCopy } from 'vite-plugin-static-copy';
+
 
 export default defineConfig({
     base: "./",
     build: {
         target: "esnext",
         polyfillDynamicImport: false,
+        assetsInclude: 0,
     },
-    esbuild: {
-        jsxFactory: "h",
-        jsxFragment: "Fragment",
-    },
+
+    plugins: [
+        viteStaticCopy({
+        targets: [{
+          src: 'src/assets/**/*.wav',
+          dest: 'assets', 
+        }],
+     }),
+    ],
     server: {
         port: 3000,
-    },
-    resolve: {
-        alias: {
-        "/@/": new URL("./src", import.meta.url).pathname,
-        },
     },
 });

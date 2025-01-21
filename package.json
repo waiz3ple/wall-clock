@@ -1,7 +1,11 @@
 {
     "name": "wall-clock",
     "version": "1.0.0",
+    "author": "Wasiu Ramoni",
     "description": "Advance analogue clock",
+    "type": "module",
+    "main": "main.js",
+    "license": "MIT",
     "keywords": [
         "clock",
         "watch",
@@ -9,18 +13,6 @@
         "clock",
         "wall clock"
     ],
-    "homepage": "https://github.com/waiz3ple/wall-clock#readme",
-    "bugs": {
-        "url": "https://github.com/waiz3ple/wall-clock/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/waiz3ple/wall-clock.git"
-    },
-    "license": "ISC",
-    "author": "Wasiu Ramoni",
-    "type": "module",
-    "main": "main.js",
     "directories": {
         "doc": "docs"
     },
@@ -36,6 +28,7 @@
         "eslint": "^9.17.0",
         "gh-pages": "^6.3.0",
         "globals": "^15.14.0",
-        "vite": "^6.0.7"
+        "vite": "^6.0.7",
+        "vite-plugin-static-copy": "^2.2.0"
     }
 }
