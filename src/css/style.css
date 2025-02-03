@@ -1,4 +1,4 @@
-/*load custom fonts*/
+/* Load custom fonts */
 @font-face {
     font-family: 'calligrapher';
     src: url('../assets/fonts/calligrapher-regular-webfont.woff2') format('woff2'),
@@ -7,7 +7,6 @@
     font-style: normal;
     font-display: swap;
 }
-
 
 @font-face {
     font-family: 'weatherSunday';
@@ -18,388 +17,374 @@
     font-display: swap;
 }
 
-html {
-	font-size: 62.50%; /* default 1rem to 10px  ==> for better readability*/
-}
-
+/* Global Styles */
 :root {
-	/*colors*/
-	--color-dark:      #000;
-	--color-white:     #fff;
-	--color-danger:    #fc0606;
-	--color-success:   #00b4d8;
-	--color-seconds:   var(--color-dark);
-  /*fonts*/
-	--font-1: calligrapher, sans-serif;
-	--font-2: weatherSunday, calligrapher, sans-serif;
-  /* svg props  */
-	--strokelimit: 10;
-	--linear-gradient: url(#linear-gradient);
-	--setting-ball: var(--color-success);
+    /* Colors */
+    --color-dark: #000;
+    --color-white: #fff;
+    --color-danger: #fc0606;
+    --color-success: #00b4d8;
+    --color-seconds: var(--color-dark);
 
-	/*tooltip*/
-	--tooltip-color: rgba(150,50,30,1.0);
-	--label-text-color:#fff;
+    /* Fonts */
+    --font-1: 'calligrapher', sans-serif;
+    --font-2: 'weatherSunday', 'calligrapher', sans-serif;
+
+    /* SVG Props */
+    --strokelimit: 10;
+    --linear-gradient: url(#linear-gradient);
+    --setting-ball: var(--color-success);
+
+    /* Tooltip */
+    --tooltip-color: rgba(150, 50, 30, 1);
+    --label-text-color: #fff;
     --arrow-size: 2rem;
 
-    /*checkbox*/
-    --ball-color:#FFF;
+    /* Checkbox */
+    --ball-color: #fff;
     --dark-color-00: rgba(0, 0, 0, 0.4);
-    --dark-color-01:rgba(100,50,30,1);
-    --dark-color-02:rgba(180,50,30,1.0);
+    --dark-color-01: rgba(100, 50, 30, 1);
+    --dark-color-02: rgba(180, 50, 30, 1);
 }
 
-[data-theme="dark"]{
+[data-theme="dark"] {
     --color-dark: #fff;
-	--color-white: #000;
-	--color-danger: var(--color-dark);
-	--color-success: #343a40;
-	--color-seconds: #fc0606;
-	--linear-gradient: var(--color-dark);
+    --color-white: #000;
+    --color-danger: var(--color-dark);
+    --color-success: #343a40;
+    --color-seconds: #fc0606;
+    --linear-gradient: var(--color-dark);
 
-	/*tooltip*/
-	--tooltip-color: #818181;
-	--label-text-color:#000;
- 
-    /*checkbox*/
-    --ball-color:#F8F8F8;
-    --dark-color-00: rgba(0, 0, 0, 0.4);
-    --dark-color-01:hsla(100, 10%, 40%, 0.5);
-    --dark-color-02:rgba(150,150,150,1);
+    /* Tooltip */
+    --tooltip-color: #818181;
+    --label-text-color: #000;
 
-    /*svg*/
+    /* Checkbox */
+    --ball-color: #f8f8f8;
+    --dark-color-01: hsla(100, 10%, 40%, 0.5);
+    --dark-color-02: rgba(150, 150, 150, 1);
+
+    /* SVG */
     --setting-ball: var(--tooltip-color);
 }
 
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
 body {
-	box-sizing: border-box;
-	font-family: sans-serif;
-	background-color: var(--color-white);
-	color: var(--color-dark);
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: var(--color-white);
+    color: var(--color-dark);
 }
 
 * {
-	box-sizing: inherit;
-	margin: 0;
-	padding: 0;
-	inset: 0;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    inset: 0;
 }
 
-.container-fluid{
-	display: grid;
-	grid-template-columns: 5fr 1fr;
-	grid-gap: 2rem;
+/* Layout */
+.container-fluid {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    gap: 2rem;
 }
 
-#hourHand,#minHand, #secHand {
-	transform-origin: center;
+/* Clock Styles */
+#hourHand, #minHand, #secHand {
+    transform-origin: center;
 }
 
 #minsBars {
-	fill: none;
-	stroke: var(--color-dark);
-	stroke-width: 4;
-	stroke-linecap: round;
-	stroke-miterlimit: var(--strokelimit);
+    fill: none;
+    stroke: var(--color-dark);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: var(--strokelimit);
 }
 
-#hoursBars{
-	fill: var(--color-danger);
-	stroke: var(--color-danger);
-	stroke-miterlimit: var(--strokelimit);
+#hoursBars {
+    fill: var(--color-danger);
+    stroke: var(--color-danger);
+    stroke-miterlimit: var(--strokelimit);
 }
 
 #numbers {
-	font-size: 4.8rem;
-	font-family: var(--font-1);
-	fill: var(--color-dark);
+    font-size: 4.8rem;
+    font-family: var(--font-1);
+    fill: var(--color-dark);
 }
 
-#hourHand {
-	fill: var(--linear-gradient);
+#hourHand, #minHand {
+    fill: var(--linear-gradient);
 }
 
 #minHand {
-	fill: var(--linear-gradient);
-	stroke: var(--color-white);
-	stroke-width: 0.33;
-	stroke-miterlimit: var(--strokelimit);
+    stroke: var(--color-white);
+    stroke-width: 0.33;
 }
 
 #secHand {
-	fill: none;
-	stroke: var(--color-seconds);
-	stroke-width: 5.57;
-	stroke-miterlimit: var(--strokelimit);
+    fill: none;
+    stroke: var(--color-seconds);
+    stroke-width: 5.57;
 }
 
 #secHand circle {
-	fill: #fff;
+    fill: #fff;
 }
 
-#designer{
-	font-size: 7rem;
-	font-family: var(--font-2);
-	fill: var(--color-success);
+#designer {
+    font-size: 7rem;
+    font-family: var(--font-2);
+    fill: var(--color-success);
 }
 
-/*stage 1  formating the default checkbox  */
+/* Checkbox */
 input[type='checkbox'] {
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-	cursor: pointer;
+    appearance: none;
+    cursor: pointer;
+    width: 5.4rem;
+    height: 2.1rem;
+    border: 3px solid var(--dark-color-02);
+    border-radius: 15px;
+    background-color: var(--dark-color-01);
+    position: relative;
+    padding: 0;
 }
 
-input[type='checkbox']:focus {
-	outline: none;
-}
-
-/*stage 2  draw the hollow  */
-input[type='checkbox'] {
-	width: 5.4rem;
-	height: 2.1rem;
-	border: 3px solid var(--dark-color-02);
-	border-radius: 15px;
-	background-color: var(--dark-color-01);
-	position: relative;
-	padding: 0;
-}
-/*stage 3  draw the ball in hollow with Psuodoelement  */
 input[type='checkbox']::before {
-	content: '';
-	width: 2.5rem;
-	height: 2.5rem;
-	background-color: var(--ball-color);
-	position: absolute;
-	border-radius: 50%;
-	box-shadow: 0.2rem 0.5rem 1rem var(--dark-color-00);
-	transition: all 0.3s ease-out;
-	top: -5px;
+    content: '';
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--ball-color);
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0.2rem 0.5rem 1rem var(--dark-color-00);
+    transition: all 0.3s ease-out;
+    top: -5px;
 }
 
 input[type='checkbox']:checked::before {
-	transform: translate(2.5rem);
-	box-shadow: none;
-	transition: all 0.3s cubic-bezier(0.6, 1.5, 0.9, 1.2);
+    transform: translate(2.5rem);
+    box-shadow: none;
+    transition: all 0.3s cubic-bezier(0.6, 1.5, 0.9, 1.2);
 }
 
+/* Error Container */
 .error-container {
-	grid-column: 1/-1;
-	display: flex;
-	padding: 2rem;
+    grid-column: 1 / -1;
+    display: flex;
+    padding: 2rem;
     justify-content: space-between;
-	font-family: sans-serif;
-	font-style: italic;
-	font-size: 1.3rem;
-	color: var(--color-danger);
-	line-height: 1.5;
-
-	& ul {
-		list-style: none;
-	}
-	
-	& .close {
-		cursor: pointer;
-		background-color: var(--color-success);
-		border-radius: 50%;
-		width: 3rem;
-		height: 3rem;
-		display: grid;
-		justify-items: center;
-		align-items: center;
-		color: #FFF;
-	}
+    font-family: sans-serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--color-danger);
+    line-height: 1.5;
 }
 
+.error-container ul {
+    list-style: none;
+}
 
+.error-container .close {
+    cursor: pointer;
+    background-color: var(--color-success);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: grid;
+    place-items: center;
+    color: #fff;
+}
 
+/* Clock SVG */
 svg.clock {
-	pointer-events: none;
+    pointer-events: none;
     max-height: 90vh;
     justify-self: center;
-    margin: 1rem ;
+    margin: 1rem;
 }
 
-
-.setting-container{
-	align-self: end;
-	display: grid ;
-	grid-column: 2/-1;
-	grid-template-rows: 2.5fr 1fr;
-	justify-items: center;
-    grid-gap: 1rem;
+/* Settings */
+.setting-container {
+    align-self: end;
+    display: grid;
+    grid-column: 2 / -1;
+    grid-template-rows: 2.5fr 1fr;
+    justify-items: center;
+    gap: 1rem;
 }
 
 svg.setting-icon {
-	cursor: pointer;
-	fill: #7D868E;
-	transition: all .2s cubic-bezier(0.6, 1.5, 0.9, 1.2);
-	width: 30%;
-    
-	& circle {
-		fill: var(--setting-ball);
-		transition: all .2s;
-	}
-
-	&:hover circle{ 
-		transform-origin: center;
-	}
-
-	&:active {
-		fill: color-mix(in srgb, var(--color-success) 70%, var(--dark-color-02));
-		transform: rotate(25deg);
-	}
-	
-	&:active circle {
-		transform: scale(.9);
-		transform-origin: center;
-	}
+    cursor: pointer;
+    fill: #7d868e;
+    transition: all 0.2s cubic-bezier(0.6, 1.5, 0.9, 1.2);
+    width: 30%;
 }
 
-.switches-container{   /*tooltip*/
-	background-color: var(--tooltip-color);
-	padding: 1.5rem 2rem;
-	border-radius: 15px;
-	max-width: fit-content;
-	max-height: 11rem;
+svg.setting-icon circle {
+    fill: var(--setting-ball);
+    transition: all 0.2s;
+}
+
+svg.setting-icon:hover circle {
+    transform-origin: center;
+}
+
+svg.setting-icon:active {
+    fill: color-mix(in srgb, var(--color-success) 70%, var(--dark-color-02));
+    transform: rotate(25deg);
+}
+
+svg.setting-icon:active circle {
+    transform: scale(0.9);
+    transform-origin: center;
+}
+
+/* Tooltip */
+.switches-container {
+    background-color: var(--tooltip-color);
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    max-width: fit-content;
+    max-height: 11rem;
     position: relative;
-    display: grid ;
-    grid-gap: .1rem;
+    display: grid;
+    gap: 0.1rem;
     justify-items: end;
     visibility: hidden;
     opacity: 0;
-    /*animation-name: animate-tooltip-out || animate-tooltip-in to be set by JS*/ 
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
 
-.switches-container::after{  /*tooltip arrow*/
-	content:'';
-	width: 0;
-	height: 0;
-	border-left: var(--arrow-size) solid transparent;
-	border-right: var(--arrow-size) solid transparent;
-	border-top: var(--arrow-size) solid var(--tooltip-color);
-	position: absolute;
-	bottom: -1.8rem;
-	justify-self: center;
+.switches-container::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: var(--arrow-size) solid transparent;
+    border-right: var(--arrow-size) solid transparent;
+    border-top: var(--arrow-size) solid var(--tooltip-color);
+    position: absolute;
+    bottom: -1.8rem;
+    justify-self: center;
 }
 
-.switches-container label{
-	color: var(--label-text-color);
-	position: relative;
-	top: -1rem;
-	margin-right: .5rem;
-	cursor: pointer;
+.switches-container label {
+    color: var(--label-text-color);
+    position: relative;
+    top: -1rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
 }
 
-/*Media Queries */
+/* Media Queries */
 @media screen and (max-width: 1150px) {
-	.setting-container{
-		grid-template-rows: 3fr 2fr;
-	    grid-gap: 2rem;
-	}
+    .setting-container {
+        grid-template-rows: 3fr 2fr;
+        gap: 2rem;
+    }
 
-	.switches-container{ 
-		padding: 1.5rem 2rem;
-		max-height: 30rem;
-	}
+    .switches-container {
+        padding: 1.5rem 2rem;
+        max-height: 30rem;
+    }
 
-	svg.setting-icon {
-		margin-top: 2rem;
-	}
-
+    svg.setting-icon {
+        margin-top: 2rem;
+    }
 }
 
 @media screen and (max-width: 950px) {
-	.container-fluid{
-		grid-template-columns: 8fr 2fr;
-		grid-gap: 1rem;
-	}
+    .container-fluid {
+        grid-template-columns: 8fr 2fr;
+        gap: 1rem;
+    }
 }
 
 @media screen and (max-width: 766px) {
-	.container-fluid{
-		grid-template-columns: 6fr 3fr;
-		grid-gap: 2rem;
-	}
+    .container-fluid {
+        grid-template-columns: 6fr 3fr;
+        gap: 2rem;
+    }
 }
-
 
 @media screen and (max-width: 700px) {
-	.container-fluid{
-		grid-template-rows: repeat(2, fit-content) minmax(fit-content, 100%);
-		grid-template-columns: 1fr;
-		grid-gap: 3rem;
-	}
+    .container-fluid {
+        grid-template-rows: repeat(2, fit-content) minmax(fit-content, 100%);
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
 
-	svg.setting-icon {
-		width: 30%;	
-		margin-top: 2rem;
-	}
+    svg.setting-icon {
+        width: 30%;
+        margin-top: 2rem;
+    }
 
-	.setting-container{
-		grid-template-columns: 4fr 2fr;
-		grid-auto-flow: dense;
-		direction: rtl;
-	    grid-gap: 3rem;
-	    align-items: center;
-	    justify-items: start;
-	}
-     
-     .switches-container{  /* tooltip body */
-     	grid-auto-flow: dense;
-		direction: ltr;
-		justify-self: end;
-		margin-top: 3.5rem;
-     }
+    .setting-container {
+        grid-template-columns: 4fr 2fr;
+        grid-auto-flow: dense;
+        direction: rtl;
+        gap: 3rem;
+        align-items: center;
+        justify-items: start;
+    }
 
-    .switches-container::after{  /*tooltip arrow*/
-      	border-top: var(--arrow-size) solid transparent;
-      	border-bottom: var(--arrow-size) solid transparent;
-      	border-right: var(--arrow-size) solid var(--tooltip-color);
-      	transform: translate(-9.5rem, -3.9rem);
-      }
-      
-     .toggle:first-child{
-     	margin-bottom: 1rem;
-     }
-		.clock,
-		.error-container, 
-		.setting-container  {
-          grid-column: 1/-1;
-		}
-		
+    .switches-container {
+        grid-auto-flow: dense;
+        direction: ltr;
+        justify-self: end;
+        margin-top: 3.5rem;
+    }
+
+    .switches-container::after {
+        border-top: var(--arrow-size) solid transparent;
+        border-bottom: var(--arrow-size) solid transparent;
+        border-right: var(--arrow-size) solid var(--tooltip-color);
+        transform: translate(-9.5rem, -3.9rem);
+    }
+
+    .toggle:first-child {
+        margin-bottom: 1rem;
+    }
+
+    .clock,
+    .error-container,
+    .setting-container {
+        grid-column: 1 / -1;
+    }
 }
 
-
-/*<== Tooltip  animation ==>*/
+/* Animations */
 @keyframes fade-in {
-	0%{
-      transform: translateY(1rem) scale(.7);
-      opacity: 0;
-	}
-    50%{
-     transform: translateY(-1.6rem) scale(1.009);
-     opacity: 0.8;
-	}
-	100%{
-     transform: translateY(-1rem) scale(1.0) ;
-     opacity: 1;
-	}
+    0% {
+        transform: translateY(1rem) scale(0.7);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-1.6rem) scale(1.009);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-1rem) scale(1);
+        opacity: 1;
+    }
 }
 
 @keyframes fade-out {
-	0%{
-      transform: translateY(-1rem);
-      opacity: 1;
-      visibility: visible;
-	}
-
-	100%{
-     transform: translateY(1rem);
-     opacity: 0;
-     visibility: hidden;
-	}
+    0% {
+        transform: translateY(-1rem);
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        transform: translateY(1rem);
+        opacity: 0;
+        visibility: hidden;
+    }
 }
