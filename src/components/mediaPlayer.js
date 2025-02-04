@@ -1,4 +1,4 @@
-import logger from './logger';
+/* import logger from './logger';
 class MediaPlayer{
 	#audio;
 	constructor(audioPath, errMsg){
@@ -31,4 +31,4 @@ const audioPath = (import.meta.env.MODE === 'development')
 
 const mediaPlayer = new MediaPlayer(audioPath, logger);  //instance of mediaPlayer
 
-export default mediaPlayer;
+export default mediaPlayer; */

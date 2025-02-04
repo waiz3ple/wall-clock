@@ -1,4 +1,4 @@
-import { selector } from '../helper/querySelector';
+/* import { selector } from '../helper/querySelector';
 
 class Toggler {
 	toggleElement(element) {
@@ -22,4 +22,4 @@ class Toggler {
 
 export default Toggler;
 
-export const { toggleElement, toggleTheme, toggleText } = new Toggler();
+export const { toggleElement, toggleTheme, toggleText } = new Toggler(); */

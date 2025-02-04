@@ -1,4 +1,4 @@
-import { selector } from '../helper/querySelector';
+ import { selector } from '../helper/querySelector';
 
 class Logger {
     #errMessages;
@@ -34,4 +34,4 @@ class Logger {
     }
 }
 
-export  default new Logger(); //singleton instance of Logger
+export  default new Logger(); //singleton instance of Logger 
