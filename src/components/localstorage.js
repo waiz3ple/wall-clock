@@ -1,4 +1,4 @@
-/* import logger from "./logger";
+import logger from "./logger";
 class LocalStorage {
 	set setTheme(theme){
 		try {
@@ -17,4 +17,4 @@ class LocalStorage {
 	}
 }
 
-export default new LocalStorage(); */
+export default new LocalStorage(); 
