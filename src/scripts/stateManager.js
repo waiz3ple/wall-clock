@@ -1,7 +1,9 @@
+import { STORAGE_KEYS } from './constants.js';
+import { LocalStorage } from './localstorage.js';
 export class StateManager {
     static state = {
-        theme: 'light',
-        soundEnabled: false,
+        theme: LocalStorage.getItem(STORAGE_KEYS.THEME) || 'light',
+        soundEnabled: LocalStorage.getItem(STORAGE_KEYS.SOUND_ENABLED) || false,
         errors: [],
     };
 
@@ -11,6 +13,8 @@ export class StateManager {
 
     static setState(newState) {
         this.state = { ...this.state, ...newState };
+        LocalStorage.setItem(STORAGE_KEYS.THEME, this.state.theme);
+        LocalStorage.setItem(STORAGE_KEYS.SOUND_ENABLED, this.state.soundEnabled);
      }
 
     static addError(error) {

@@ -1,0 +1,25 @@
+.setting-icon {
+    fill: #7D868E;
+    width: 30%;
+    cursor: pointer;
+    transition: all .2s cubic-bezier(0.6, 1.5, 0.9, 1.2);
+}
+
+.setting-icon:active {
+    fill: color-mix(in srgb, var(--color-success) 70%, var(--dark-color-02));
+    transform: rotate(25deg);
+}
+
+.setting-icon circle {
+    fill: var(--setting-ball);
+    transition: all .2s;
+}
+
+.setting-icon:hover circle {
+    transform-origin: center center;   
+}
+
+.setting-icon:active circle {
+    transform: scale(.9);
+    transform-origin: center center;
+}

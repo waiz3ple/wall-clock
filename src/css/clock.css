@@ -1,0 +1,58 @@
+.clock {
+    pointer-events: none;
+    max-height: 90vh;
+    justify-self: center;
+    margin: 1rem;
+}
+
+#hourHand, #minHand, #secHand {
+    transform-origin: center;
+}
+
+#minsBars {
+    fill: none;
+    stroke: var(--color-dark);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: var(--strokelimit);
+}
+
+#hoursBars {
+    fill: var(--color-danger);
+    stroke: var(--color-danger);
+    stroke-miterlimit: var(--strokelimit);
+}
+
+#numbers {
+    font-size: 4.8rem;
+    font-family: var(--font-1);
+    fill: var(--color-dark);
+}
+
+#hourHand {
+    fill: var(--linear-gradient);
+}
+
+#minHand {
+    fill: var(--linear-gradient);
+    stroke: var(--color-white);
+    stroke-width: 0.33;
+    stroke-miterlimit: var(--strokelimit);
+}
+
+#secHand {
+    fill: none;
+    stroke: var(--color-seconds);
+    stroke-width: 5.57;
+    stroke-miterlimit: var(--strokelimit);
+}
+
+#secHand circle {
+    fill: #fff;
+}
+
+#designer text {
+    font-size: 7rem;
+    font-family: var(--font-2);
+    fill: var(--color-success);
+}

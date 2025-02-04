@@ -1,0 +1,42 @@
+.container-fluid {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-gap: 2rem;
+}
+
+.error-container {
+    grid-column: 1/-1;
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+    font-family: sans-serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--color-danger);
+    line-height: 1.5;
+
+    & ul {
+        list-style: none;
+    }
+    
+    & .closed {
+        cursor: pointer;
+        background-color: var(--color-success);
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        color: #FFF;
+    }
+}
+
+.setting-container {
+    align-self: end;
+    display: grid;
+    grid-column: 2/-1;
+    grid-template-rows: 2.5fr 1fr;
+    justify-items: center;
+    grid-gap: 1rem;
+}

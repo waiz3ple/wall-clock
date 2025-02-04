@@ -1,11 +1,11 @@
-import { SELECTORS } from './constants';
+import { SELECTORS } from './constants.js';
 
 export class Clock {
-    #secHand = document.querySelector(SELECTORS.SEC_HAND);
-    #minHand = document.querySelector(SELECTORS.MIN_HAND);
-    #hourHand = document.querySelector(SELECTORS.HOUR_HAND);
-    #coordinate = { x: 0.5, y: 3.5 };
-    #animationFrameId = null;
+  #secHand = document.querySelector(SELECTORS.SEC_HAND);
+  #minHand = document.querySelector(SELECTORS.MIN_HAND);
+  #hourHand = document.querySelector(SELECTORS.HOUR_HAND);
+  #coordinate = { x: 0.5, y: 3.5 };
+  #animationFrameId = null;
 
   #updateTime() {
     const time = new Date();
