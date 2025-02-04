@@ -1,4 +1,4 @@
-import { SELECTORS } from './constants.js';
+import { SELECTORS } from './constants';
 
 export class Clock {
     #secHand = document.querySelector(SELECTORS.SEC_HAND);

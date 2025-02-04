@@ -1,7 +1,7 @@
-import { Clock } from './clock.js';
-import { EventHandler } from './eventHandler.js';
-import { Logger } from './logger.js';
-import { StateManager } from './stateManager.js';
+import { Clock } from './scripts/clock.js';
+import { EventHandler } from './scripts/eventHandler.js';
+import { Logger } from './scripts/logger.js';
+import { StateManager } from './scripts/stateManager.js';
 
 const logger = new Logger();
 const clock = new Clock();

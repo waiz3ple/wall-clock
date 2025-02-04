@@ -1,12 +1,12 @@
-import { SELECTORS, THEMES } from './constants.js';
-import { MediaPlayer } from './mediaPlayer.js';
-import { StateManager } from './stateManager.js';
-import { Toggler } from './toggler.js';
+import { AUDIO_PATH, SELECTORS, THEMES } from './constants';
+import { MediaPlayer } from './mediaPlayer';
+import { StateManager } from './stateManager';
+import { Toggler } from './toggler';
 
 export class EventHandler extends Toggler {
   constructor() {
     super();
-    this.btnBox = document.querySelector(SELECTORS.SWITCHES_CONTAINER);
+    this.switchesWrapper = document.querySelector(SELECTORS.SWITCHES_CONTAINER);
     this.settings = document.querySelector(SELECTORS.SETTING_ICON);
     this.closedIcon = document.querySelector(SELECTORS.CLOSED_ICON);
     this.player = new MediaPlayer(AUDIO_PATH);
@@ -32,17 +32,17 @@ export class EventHandler extends Toggler {
 
     window.addEventListener(
       'click',
-      this.#debounce((e) => {
+      this.#debounce((e) => { // performance optimization
         if (
-          this.btnBox.style.visibility === 'visible' &&
-          !this.btnBox.closest('.setting-container').contains(e.target)
+          this.switchesWrapper.style.visibility === 'visible' &&
+          !this.switchesWrapper.closest('.setting-container').contains(e.target)
         ) {
-          this.toggleElement(this.btnBox);
+          this.toggleElement(this.switchesWrapper);
         }
       }, 100)
     );
 
-    this.btnBox.addEventListener('change', (e) => {
+    this.switchesWrapper.addEventListener('change', (e) => {
       const isChecked = e.target.checked;
       if (e.target.classList.contains('sound-checkbox')) {
         StateManager.setState({ soundEnabled: isChecked });
@@ -58,7 +58,7 @@ export class EventHandler extends Toggler {
       }
     });
 
-    this.settings.addEventListener('click', () => this.toggleElement(this.btnBox));
+    this.settings.addEventListener('click', () => this.toggleElement(this.switchesWrapper));
     this.closedIcon.addEventListener('click', () => StateManager.clearErrors());
   }
 }

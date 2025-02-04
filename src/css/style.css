@@ -236,6 +236,7 @@ svg.setting-icon {
 	width: 30%;
 	cursor: pointer;
 	transition: all .2s cubic-bezier(0.6, 1.5, 0.9, 1.2);
+    background: #000;
 }
 
 svg.setting-icon:active{

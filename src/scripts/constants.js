@@ -18,4 +18,4 @@ export const THEMES = {
   DARK: 'dark',
 };
 
-export const AUDIO_PATH = './sounds/tick-tock.wav';
+export const AUDIO_PATH = '../src/assets/sounds/clock-ticking.wav';
