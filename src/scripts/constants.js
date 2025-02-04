@@ -19,3 +19,8 @@ export const THEMES = {
 };
 
 export const AUDIO_PATH = '../src/assets/sounds/clock-ticking.wav';
+
+export const STORAGE_KEYS = {
+  THEME: 'theme',
+  SOUND_ENABLED: 'soundEnabled',
+};
