@@ -1,5 +1,5 @@
 import { STORAGE_KEYS } from './constants.js';
-import { LocalStorage } from './localstorage.js';
+import { LocalStorage } from './localStorage.js';
 export class StateManager {
     static state = {
         theme: LocalStorage.getItem(STORAGE_KEYS.THEME) || 'light',
