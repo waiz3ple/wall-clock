@@ -8,13 +8,12 @@ A beautifully designed, interactive analog clock web application featuring a sle
 ---
 
 ## ✨ Features
-
-- **Analog Clock**: Smooth, real-time hour, minute, and second hands.
+- **Smooth Analog Clock**: Real-time hour, minute, and second hands.
 - **Customizable Themes**: Switch between light and dark modes.
-- **Sound Effects**: Toggle ticking sounds for an immersive experience.
-- **Responsive Design**: Works seamlessly on all screen sizes.
-- **Tooltip Settings**: Intuitive tooltip for toggling themes and sounds.
-- **Modular CSS**: Organized styles for better maintainability.
+- **Optional Sound Effects**: Toggle ticking sounds for an immersive experience.
+- **Responsive Design**: Seamless performance across all screen sizes.
+- **Intuitive Controls**: Easily toggle themes and sounds via tooltips.
+- **Well-Structured CSS**: Modular styles for maintainability.
 
 ---
 
@@ -37,7 +36,7 @@ A beautifully designed, interactive analog clock web application featuring a sle
    ```bash
    npm install
    ```
-4. Run locally in your browser:
+4. Run locally:
    ```bash
    npm run dev
    ```
@@ -55,13 +54,12 @@ A beautifully designed, interactive analog clock web application featuring a sle
 ## 🎨 Customization
 
 ### Themes
-Modify `variables.css` to customize light and dark modes.
+Modify `variables.css` to adjust light and dark modes.
 
 ### Sounds
 Replace `clock-ticking.wav` in the `assets/sounds` folder with your preferred audio file.
 
-### Modular CSS
-Styles are split into:
+### Modular CSS Structure
 - `fonts.css`: Custom fonts.
 - `variables.css`: Theme and color variables.
 - `base.css`: Global styles.
@@ -79,14 +77,22 @@ Styles are split into:
 Tested on:
 - Google Chrome
 - Mozilla Firefox
-- Microsoft Edge
 - Brave
-
----
+- Opera
+- Microsoft Edge
 
 ## 🛠️ CI/CD for GitHub Pages
 
-Automatically deploys to GitHub Pages only when the `main` branch is built. The `dist` folder is generated and deployed.
+Automatically deploys to GitHub Pages when the `main` branch is built. The `dist` folder is generated and deployed.
+---
+
+## 🚀 Areas for Improvement
+
+- **Desktop Screen Saver Mode**: Convert the app into a screensaver for Windows and macOS.
+- **Alarm Feature**: Add an alarm clock option with customizable alerts.
+- **Additional Themes**: Introduce more theme options, including seasonal and custom backgrounds.
+- **Widget Support**: Develop a widget version for desktops and mobile devices.
+
 ---
 
 ## 🤝 Contributing
@@ -107,7 +113,6 @@ Licensed under the [MIT License](LICENSE).
 ---
 
 ## 👤 Author
-
 - **Wasiu Ramoni**
 - GitHub: [@waiz3ple](https://github.com/waiz3ple)
 - Twitter: [@waiz3ple](https://x.com/waiz3ple)
@@ -116,3 +121,5 @@ Licensed under the [MIT License](LICENSE).
 ---
 
 Enjoy your time with the Analog Clock App! ⏰
+
+
