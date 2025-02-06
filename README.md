@@ -83,7 +83,8 @@ Tested on:
 
 ## 🛠️ CI/CD for GitHub Pages
 
-Automatically deploys to GitHub Pages when the `main` branch is built. The `dist` folder is generated and deployed.
+ Automatically deploys to GitHub Pages when the `main` branch is built. The `dist` folder is generated and deployed.
+
 ---
 
 ## 🚀 Areas for Improvement
