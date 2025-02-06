@@ -1,0 +1,35 @@
+.switches-container {
+    background-color: var(--tooltip-color);
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    max-width: fit-content;
+    max-height: 11rem;
+    position: relative;
+    display: grid;
+    grid-gap: .1rem;
+    justify-items: end;
+    visibility: hidden;
+    opacity: 0;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.switches-container::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: var(--arrow-size) solid transparent;
+    border-right: var(--arrow-size) solid transparent;
+    border-top: var(--arrow-size) solid var(--tooltip-color);
+    position: absolute;
+    bottom: -1.8rem;
+    justify-self: center;
+}
+
+.switches-container label {
+    color: var(--label-text-color);
+    position: relative;
+    top: -1rem;
+    margin-right: .5rem;
+    cursor: pointer;
+}

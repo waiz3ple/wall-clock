@@ -1,110 +1,125 @@
-# Analog Wall Clock
+# 🕰️ Analog Clock Web App
 
-## Overview
+A beautifully designed, interactive analog clock web application featuring a sleek analog clock crafted with Adobe Illustrator, customizable themes, and sound effects. Perfect for adding elegance to your browser.
 
-The **Analog Wall Clock** is a feature-rich application that displays the current time with additional functionalities such as sound effects, light and dark mode color schemes, and the ability to remember user preferences.
-
----
-
-## Features
-
-### 1. Real-Time Clock
-
-- Displays the current time with three clock hands: hour, minute, and second.
-- Updates in real-time to ensure precise timekeeping.
-
-### 2. Sound Effects
-
-- Option to enable or disable clock ticking sound effects.
-- Emits a ticking sound every second when enabled.
-
-### 3. Color Scheme
-
-- Offers a choice between light and dark mode for the clock’s appearance.
-- Saves the selected color scheme in the browser's local storage for consistent user experience across sessions.
-
-### 4. Error Handling
-
-- Handles errors related to audio initialization, sound playback, and local storage gracefully.
-- Displays errors in a dismissible error message box.
+## **[Live Demo](https://waiz3ple.github.io/wall-clock)**  
+![Wall Clock Screenshot](./src/assets/images/screenshot.png)
 
 ---
 
-## Getting Started
+## ✨ Features
+- **Smooth Analog Clock**: Real-time hour, minute, and second hands.
+- **Customizable Themes**: Switch between light and dark modes.
+- **Optional Sound Effects**: Toggle ticking sounds for an immersive experience.
+- **Responsive Design**: Seamless performance across all screen sizes.
+- **Intuitive Controls**: Easily toggle themes and sounds via tooltips.
+- **Well-Structured CSS**: Modular styles for maintainability.
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-
-Ensure you have a modern web browser that supports:
-
-- **SVG** for rendering the clock’s graphics.
-- **JavaScript** for real-time updates and interactivity.
+- A modern web browser (Chrome, Firefox, Edge, Brave).
+- Node.js (optional, for local development).
 
 ### Installation
-
-1. **Clone the repository**:
+1. Clone the repository:
    ```bash
    git clone https://github.com/waiz3ple/wall-clock.git
    ```
-2. **Navigate to the project directory**:
+2. Navigate to the project directory:
    ```bash
    cd wall-clock
    ```
-3. **Run the application**:
+3. Install dependencies (if applicable):
+   ```bash
+   npm install
+   ```
+4. Run locally:
    ```bash
    npm run dev
    ```
-   Ensure you have Node.js installed on your machine.
 
 ---
 
-## Usage
+## 🛠️ Usage
 
-- **Sound Toggle**: Use the "Toggle Sound" switch to enable or disable ticking sound effects.
-- **Color Scheme Toggle**: Use the "Toggle Color Scheme" switch to switch between dark and light modes.
-- **Error Messages**: Any errors (e.g., audio initialization failure) are displayed in the error message box. Click "Close" to dismiss the messages.
-
----
-
-## Preview
-
-View a live demo of the clock here: [Live Demo](https://waiz3ple.github.io/wall-clock)
+- **Toggle Theme**: Click the settings icon (⚙️) to switch between light and dark modes.
+- **Enable/Disable Sound**: Use the sound toggle in the tooltip.
+- **Close Tooltip**: Click outside the tooltip or the close button to dismiss it.
 
 ---
 
-## Customization
+## 🎨 Customization
 
-### Ticking Sound
+### Themes
+Modify `variables.css` to adjust light and dark modes.
 
-- Replace the `tick-tock.wav` file in the `sounds` folder with your desired audio file to use a custom ticking sound.
-- Ensure the new file is in a compatible format, such as **WAV**.
+### Sounds
+Replace `clock-ticking.wav` in the `assets/sounds` folder with your preferred audio file.
 
-### Appearance
-
-- Customize the clock’s design by editing the `styles.css` file.
-
-### Error Handling
-
-- Enhance error handling and logging by updating the error-handling functions in the JavaScript file.
+### Modular CSS Structure
+- `fonts.css`: Custom fonts.
+- `variables.css`: Theme and color variables.
+- `base.css`: Global styles.
+- `clock.css`: Clock-specific styles.
+- `checkbox.css`: Toggle switch styles.
+- `tooltip.css`: Tooltip styles.
+- `media-queries.css`: Responsive adjustments.
+- `animations.css`: Keyframe animations.
+- `settings-icon.css`: Settings icon styles.
 
 ---
 
-## License
+## 🌐 Browser Support
 
-This project is open-source and licensed under the [MIT License](LICENSE).
+Tested on:
+- Google Chrome
+- Mozilla Firefox
+- Brave
+- Opera
+- Microsoft Edge
 
+## 🛠️ CI/CD for GitHub Pages
+
+Automatically deploys to GitHub Pages when the `main` branch is built. The `dist` folder is generated and deployed.
+---
+
+## 🚀 Areas for Improvement
+
+- **Desktop Screen Saver Mode**: Convert the app into a screensaver for Windows and macOS.
+- **Alarm Feature**: Add an alarm clock option with customizable alerts.
+- **Additional Themes**: Introduce more theme options, including seasonal and custom backgrounds.
+- **Widget Support**: Develop a widget version for desktops and mobile devices.
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Open a pull request.
+
+---
+
+## 📜 License
+
+Licensed under the [MIT License](LICENSE).  
 **Please do not claim this project as your own.**
 
 ---
 
-## Author
-
+## 👤 Author
 - **Wasiu Ramoni**
 - GitHub: [@waiz3ple](https://github.com/waiz3ple)
+- Twitter: [@waiz3ple](https://x.com/waiz3ple)
+- Telegram: [t.me/waiz3ple](https://t.me/waiz3ple)
 
 ---
 
-## Contact
+Enjoy your time with the Analog Clock App! ⏰
 
-Feel free to reach out with questions, suggestions, or feedback:
-- **Twitter**: [@waiz3ple](https://x.com/waiz3ple)
-- **Telegram**: [t.me/waiz3ple](https://t.me/waiz3ple)
+

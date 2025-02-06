@@ -8,14 +8,15 @@
 			name="description"
 			content="A well-structured JavaScript code snippet for a dynamic clock application with real-time ticking sound, customizable color themes, and interactive settings."
 		/>
-		<link rel="stylesheet" href="src/css/style.css" />
+		<link rel="stylesheet" href="src/css/main.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<title>Wall Clock</title>
-		<script defer type="module" src="src/main.js"></script>
+		<script defer type="module" src="src/scripts/main.js"></script>
 	</head>
 	<body>
 		<main class="container-fluid">
 			<aside class='error-container'>
-				<div class="close"><span>✕</span></div>
+				<div class="closed"><span>✕</span></div>
 			</aside>
 			<svg class="clock" version="1.1" x="0px" y="0px" viewBox="0 0 708.25 709.24" style="enable-background: new 0 0 708.25 709.24" xml:space="preserve">
 				<g id="designer">
@@ -162,12 +163,15 @@
 				</div>
 				<!-- toggle switch end -->
 				<!-- settings start -->
-				<svg
+                    <svg
 					class="setting-icon"
+                    role="button"
+                    aria-label="setting button"
 					version="1.1"
 					id="Layer_2"
 					x="0px"
 					y="0px"
+                    role="button"
 					viewBox="0 0 276 254.11"
 					style="enable-background: new 0 0 276 254.11"
 					xml:space="preserve"
