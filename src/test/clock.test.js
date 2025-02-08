@@ -3,7 +3,7 @@ import { SELECTORS } from '../scripts/constants';
 
 jest.useFakeTimers();
 
-describe.skip('Clock Class', () => {
+describe('Clock Class', () => {
     let clock;
     let secHand, minHand, hourHand;
 

@@ -7,7 +7,7 @@ jest.mock('../scripts/stateManager', () => ({
     },
 }));
 
-describe.skip('LocalStorage Class', () => {
+describe('LocalStorage Class', () => {
     beforeEach(() => {
         jest.clearAllMocks(); // Reset mocks
         Storage.prototype.setItem = jest.fn();

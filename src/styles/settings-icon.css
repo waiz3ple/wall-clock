@@ -23,3 +23,7 @@
     transform: scale(.9);
     transform-origin: center center;
 }
+
+ .error-container .close {
+    display: none;
+}

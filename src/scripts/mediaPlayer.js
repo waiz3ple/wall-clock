@@ -5,8 +5,10 @@ export class MediaPlayer {
     }
 
     playSound() {
-        this.#audio.play();
-        this.#audio.loop = true;
+        if (this.#audio) {
+            this.#audio.play();
+            his.#audio.loop = true;
+        }
     }
 
     pauseSound() {

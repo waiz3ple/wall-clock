@@ -6,7 +6,7 @@ export const SELECTORS = {
   HOUR_HAND: '#hourHand',
   SWITCHES_CONTAINER: '.switches-container',
   SETTING_ICON: '.setting-icon',
-  CLOSED_ICON: '.closed',
+  CLOSED_ICON: '.close',
   SOUND_CHECKBOX: '#sound-checkbox',
   COLOR_CHECKBOX: '#color-checkbox',
   SOUND_LABEL: 'label[for="sound-checkbox"]',

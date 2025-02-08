@@ -23,11 +23,12 @@ export class EventHandler extends Toggler {
 
   initializeListeners() {
     window.addEventListener('load', () => {
-      const { theme } = StateManager.getState();
+      const { theme, soundEnabled } = StateManager.getState();
       if (theme && theme !== THEMES.LIGHT) {
-        this.toggleTheme(theme);
-        document.querySelector(SELECTORS.COLOR_CHECKBOX).checked = true;
-      }
+            this.toggleTheme(theme);
+            document.querySelector(SELECTORS.COLOR_CHECKBOX).checked = true;
+        }
+
     });
 
     window.addEventListener(
@@ -42,7 +43,7 @@ export class EventHandler extends Toggler {
       }, 100)
     );
 
-    this.switchesWrapper.addEventListener('change', (e) => {
+    this.switchesWrapper?.addEventListener('change', (e) => {
       const isChecked = e.target.checked;
       if (e.target.classList.contains('sound-checkbox')) {
         StateManager.setState({ soundEnabled: isChecked });
@@ -58,7 +59,10 @@ export class EventHandler extends Toggler {
       }
     });
 
-    this.settings.addEventListener('click', () => this.toggleElement(this.switchesWrapper));
-    this.closedIcon.addEventListener('click', () => StateManager.clearErrors());
+    this.settings?.addEventListener('click', () => this.toggleElement(this.switchesWrapper));
+      this.closedIcon?.addEventListener('click', () => {
+          StateManager.clearErrors();
+          this.closedIcon.style.display = 'none'
+      });
   }
 }

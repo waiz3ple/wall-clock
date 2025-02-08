@@ -12,7 +12,10 @@ export class Toggler {
     }
 
     toggleText(state, selector, options) {
+        const [currentText, nextText] = options;
         const element = document.querySelector(selector);
-        element.textContent = state ? options[0] : options[1];
+        if (element) {
+            element.textContent = state ? currentText : nextText;
+        }
     }
 }

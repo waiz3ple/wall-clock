@@ -1,8 +1,10 @@
 import { SELECTORS } from './constants.js';
 
 export class Logger {
-  #errMessages = [];
-  #errContainer = document.querySelector(SELECTORS.ERROR_CONTAINER);
+#errMessages = [];
+#errContainer = document.querySelector(SELECTORS.ERROR_CONTAINER);
+#closeButton = document.querySelector(SELECTORS.CLOSED_ICON);
+
 
   log() {
     if (this.#errMessages.length) {
@@ -15,6 +17,7 @@ export class Logger {
         ul.appendChild(li);
       });
       this.#errContainer.prepend(ul);
+      this.#closeButton.style.display = 'block';
       return;
     }
     this.#errContainer.style.display = 'none';

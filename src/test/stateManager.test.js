@@ -1,7 +1,7 @@
 import { LocalStorage } from '../scripts/localStorage';
 import { StateManager } from '../scripts/stateManager';
 
-describe.skip('StateManager', () => {
+describe('StateManager', () => {
   beforeEach(() => {
     StateManager.state = { theme: 'light', soundEnabled: false };
     jest.spyOn(LocalStorage, 'setItem').mockImplementation(() => {});

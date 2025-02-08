@@ -24,16 +24,16 @@ export class Clock {
 
 #handRotation(hand, angle) {
     const { x, y } = this.#coordinate;
-    hand.setAttribute('transform', `rotate(${angle}, ${x}, ${y})`);
+    hand?.setAttribute('transform', `rotate(${angle}, ${x}, ${y})`);
   }
 
 start() {
     const animate = () => {
         this.#updateTime();
-    // performace optimization: less energy on CPU & smoother animation instead on setInterval
+    // performace optimization: less load on CPU & smoother animation instead on setInterval
         this.#animationFrameId = requestAnimationFrame(animate); 
     };
-    animate();
+    animate(); 
   }
 
     stop() {

@@ -1,6 +1,6 @@
 import { Toggler } from '../scripts/toggler';
 
-describe.skip('Toggler Class', () => {
+describe('Toggler Class', () => {
     let toggler;
     let mockElement;
 
