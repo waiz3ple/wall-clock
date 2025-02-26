@@ -1,0 +1,21 @@
+{
+    "name": "Wall Clock",
+    "short_name": "Clock",
+    "description": "A dynamic wall clock with ticking sound and customizable themes.",
+    "start_url": "/wall-clock/",
+    "display": "standalone",
+    "background_color": "#333",
+    "theme_color": "#a700e9",
+    "icons": [
+        {
+            "src": "favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}

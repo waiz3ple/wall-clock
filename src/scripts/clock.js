@@ -1,13 +1,13 @@
 import { SELECTORS } from './constants.js';
 
 export class Clock {
-    #secHand = document.querySelector(SELECTORS.SEC_HAND);
-    #minHand = document.querySelector(SELECTORS.MIN_HAND);
-    #hourHand = document.querySelector(SELECTORS.HOUR_HAND);
-    #coordinate = { x: 0.5, y: 3.5 };
-    #animationFrameId = null;
+  #secHand = document.querySelector(SELECTORS.SEC_HAND);
+  #minHand = document.querySelector(SELECTORS.MIN_HAND);
+  #hourHand = document.querySelector(SELECTORS.HOUR_HAND);
+  #coordinate = { x: 0.5, y: 3.5 }; 
+  #animationFrameId = null;
 
-#updateTime() {
+  #updateTime() {
     const time = new Date();
     const seconds = time.getSeconds();
     const minutes = time.getMinutes();
@@ -22,23 +22,22 @@ export class Clock {
     this.#handRotation(this.#hourHand, hoursDeg);
   }
 
-#handRotation(hand, angle) {
+  #handRotation(hand, angle) {
     const { x, y } = this.#coordinate;
     hand?.setAttribute('transform', `rotate(${angle}, ${x}, ${y})`);
   }
 
-start() {
+  start() {
     const animate = () => {
-        this.#updateTime();
-    // performace optimization: less load on CPU & smoother animation instead on setInterval
-        this.#animationFrameId = requestAnimationFrame(animate); 
+      this.#updateTime();
+      this.#animationFrameId = requestAnimationFrame(animate);
     };
-    animate(); 
+    animate();
   }
 
-    stop() {
-        if (this.#animationFrameId) {
-            cancelAnimationFrame(this.#animationFrameId);
+  stop() {
+    if (this.#animationFrameId) {
+      cancelAnimationFrame(this.#animationFrameId);
     }
   }
 }

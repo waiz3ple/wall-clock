@@ -23,7 +23,7 @@ export class EventHandler extends Toggler {
 
   initializeListeners() {
     window.addEventListener('load', () => {
-      const { theme, soundEnabled } = StateManager.getState();
+      const { theme } = StateManager.getState();
       if (theme && theme !== THEMES.LIGHT) {
             this.toggleTheme(theme);
             document.querySelector(SELECTORS.COLOR_CHECKBOX).checked = true;
@@ -45,7 +45,7 @@ export class EventHandler extends Toggler {
 
     this.switchesWrapper?.addEventListener('change', (e) => {
       const isChecked = e.target.checked;
-      if (e.target.classList.contains('sound-checkbox')) {
+        if (e.target.classList.contains('sound-checkbox')) {
         StateManager.setState({ soundEnabled: isChecked });
         isChecked ? this.player.playSound() : this.player.pauseSound();
         this.toggleText(isChecked, SELECTORS.SOUND_LABEL, ['Sound On', 'Sound Off']);

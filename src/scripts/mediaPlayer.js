@@ -7,7 +7,7 @@ export class MediaPlayer {
     playSound() {
         if (this.#audio) {
             this.#audio.play();
-            his.#audio.loop = true;
+            this.#audio.loop = true;
         }
     }
 
